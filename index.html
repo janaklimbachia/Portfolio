@@ -439,6 +439,47 @@
       user-select: none;
     }
 
+/* Experience Section */
+#experience {
+  padding: 80px 10%;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+#experience.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.experience-content {
+  flex-grow: 1;
+  padding-right: 20px;
+}
+
+.experience-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.experience-content p {
+  margin: 5px 0;
+}
+
+.experience-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.experience-content ul li {
+  margin-bottom: 5px;
+}
+
+
+
+
     /* Keep all your existing styles */
     /* ... */
 
@@ -465,7 +506,7 @@
     <div>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
-      <a href="https://drive.google.com/file/d/1ZBHuhUpnKi6yTLXDzCpA5D8y6dZbB2K2/view?usp=sharing" target="_blank">Resume</a>
+      <a href="https://drive.google.com/file/d/1Y9aAkqaproLHIyWLcIt4PSWgw9QmUQC2/view?usp=sharing">Resume</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
@@ -479,7 +520,7 @@
         & I am a <span class="specialty" id="specialty-text">Product Manager</span>
       </h1>
     </div>
-    <img src="PicsArt_01-28-12.37.10-removebg-preview (1) - Copy.png" alt="Janak's Avatar" class="avatar">
+    <img src="C:\J\Portfolio\PicsArt_01-28-12.37.10-removebg-preview (1).png" alt="Janak's Avatar" class="avatar">
   </header>
 
   <!-- About Section -->
@@ -492,7 +533,7 @@
           <p>Master's in Engineering Management (MEM) at Dartmouth College</p>
           <p>Graduating: December 2025</p>
         </div>
-        <img src="D-Pine_RGB.png" alt="Current Studies Image">
+        <img src="C:\Users\Janak Limbachia\Downloads\d-pine-all-formats\D-Pine_Black.png" alt="Current Studies Image">
       </div>
       <div class="info">
         <div class="info-content">
@@ -501,62 +542,175 @@
           <p>GPA: 3.97</p>
           <p>Honors in Blockchain Technology</p>
         </div>
-        <img src="Somaiya Logo.png" alt="Undergrad Image">
+        <img src="C:\Users\Janak Limbachia\Downloads\Somaiya Logo.png" alt="Undergrad Image">
       </div>
     </div>
   </section>
+
+<!-- Projects Section -->
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects">
+    <div class="project" onclick="window.open('https://github.com/your-github-link-for-moodify', '_blank')">
+      <div class="project-content">
+        <h3>Moodify - Mental Health AI Companion</h3>
+        <p>Moodify is an AI-powered mental health solution that integrates emotion detection, a chatbot, and anonymous chat rooms to combat mental health stigma and provide accessible support. It achieved 82% detection accuracy and received positive user feedback for its impactful and user-friendly design.</p>
+        <div class="tech-stack">
+          <i class="fab fa-android" title="Android"></i>
+          <i class="fab fa-java" title="Java"></i>
+          <i class="fab fa-figma" title="Figma"></i>
+          <i class="fas fa-brain" title="AI"></i>
+          <i class="fab fa-python" title="Python"></i>
+          <i class="fas fa-database" title="Firebase"></i>
+        </div>
+      </div>
+      <img src="C:\J\Portfolio\moodifylogo_new.png" alt="Moodify Project Image">
+    </div>
+
+    <div class="project" onclick="window.open('https://github.com/your-github-link-for-shabri', '_blank')">
+      <div class="project-content">
+        <h3>Shabri - AI Assistant</h3>
+        <p>Shabri is a voice-authorized assistant for personal devices, helping with tasks like reading to-do lists, scheduling meetings, and notifying trends. It's trained on various accents and decibel levels for universal adaptability.</p>
+        <div class="tech-stack">
+          <i class="fab fa-python" title="Python"></i>
+          <i class="fas fa-microphone" title="Voice Recognition"></i>
+          <i class="fas fa-robot" title="AI"></i>
+        </div>
+      </div>
+      <img src="C:\J\Portfolio\shabri.png" alt="Shabri Project Image">
+    </div>
+
+    <div class="project" onclick="window.open('https://github.com/your-github-link-for-chatbot', '_blank')">
+      <div class="project-content">
+        <h3>Deep Learning Chatbot</h3>
+        <p>A self-learning chatbot developed using RNN in Python and TensorFlow. It improves based on user feedback and integrates various APIs for enhanced functionality.</p>
+        <div class="tech-stack">
+          <i class="fab fa-python" title="Python"></i>
+          <i class="fas fa-robot" title="AI"></i>
+          <i class="fab fa-tensorflow" title="TensorFlow"></i>
+        </div>
+      </div>
+      <img src="C:\J\Portfolio\DL-Chatbot.png" alt="Chatbot Project Image">
+    </div>
+
+    <div class="project" onclick="window.open('https://github.com/your-github-link-for-farmers-care', '_blank')">
+      <div class="project-content">
+        <h3>Farmer's Care Portal</h3>
+        <p>A portal connecting farmers directly with consumers, eliminating middlemen. It uses SQL for the database and TKinter for the front end, ensuring fair prices and fresh produce.</p>
+        <div class="tech-stack">
+          <i class="fab fa-python" title="Python"></i>
+          <i class="fas fa-database" title="SQL"></i>
+          <i class="fas fa-leaf" title="Agriculture"></i>
+        </div>
+      </div>
+      <img src="C:\J\Portfolio\FarmerCare.png" alt="Farmer's Care Project Image">
+    </div>
+
+    <div class="project" onclick="window.open('https://github.com/your-github-link-for-erp', '_blank')">
+      <div class="project-content">
+        <h3>IT Solutions ERP</h3>
+        <p>An ERP platform for tracking project progress and member assignments. Developed using NetBeans IDE, Java, and MySQL, it offers different views for members, managers, and admins.</p>
+        <div class="tech-stack">
+          <i class="fab fa-java" title="Java"></i>
+          <i class="fas fa-database" title="MySQL"></i>
+          <i class="fas fa-network-wired" title="ERP"></i>
+        </div>
+      </div>
+      <img src="C:\J\Portfolio\ITSolutionsERP.png" alt="ERP Project Image">
+    </div>
+  </div>
+</section>
+
 
 
   <!-- Work Section -->
   <section id="projects">
-    <h2>Projects</h2>
+    <h2>Professional Experience</h2>
     <div class="projects">
       <div class="project" onclick="window.open('https://github.com/your-github-link-for-moodify', '_blank')">
         <div class="project-content">
-          <h3>Moodify - Mental Health AI Companion</h3>
-          <p>Moodify is an AI-powered mental health solution that integrates emotion detection, a chatbot, and anonymous chat rooms to combat mental health stigma and provide accessible support. It achieved 82% detection accuracy and received positive user feedback for its impactful and user-friendly design.</p>
-          <div class="tech-stack">
-            <i class="fab fa-android" title="Android"></i>
-            <i class="fab fa-java" title="Java"></i>
-            <i class="fab fa-figma" title="Figma"></i>
-            <i class="fas fa-brain" title="AI"></i>
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-database" title="Firebase"></i>
-          </div>
+          <h3>Product Apprentice - AI Integration Consultant</h3>
+	  <p><strong>Radiation Detection Company</strong> | Sep 2024 – Nov 2024</p>
+          <p><em>Hanover, NH, USA</em></p>
+	 <ul>
+          <li>Led the development of an AI adoption roadmap, assessing automation opportunities and collaborating with cross-functional teams to prioritize initiatives.</li>
+          <li>Engineered data-driven Go-To-Market strategy, analyzing sales data to predict churn and upsell opportunities with 81.71% precision.</li>
+          <li>Optimized workflow by automating manual data review, implementing KMeans clustering, and developing risk monitoring frameworks.</li>
+        </ul>
+        <div class="tech-stack">
+          <i class="fab fa-python" title="Python"></i>
+          <i class="fas fa-chart-line" title="Data Analysis"></i>
+          <i class="fas fa-cogs" title="Automation"></i>
         </div>
-        <img src="MoodifyLogo_short.png" alt="Moodify Project Image">
+        </div>
+        <img src="C:\J\Portfolio\RDCLogo.png" alt="Moodify Project Image">
       </div>
       
       <div class="project" onclick="window.open('https://github.com/your-github-link-for-mansik-shakti', '_blank')">
         <div class="project-content">
-          <h3>Mansik Shakti</h3>
-          <p>Mansik Shakti is a mental health initiative powered by AI, designed to predict mental health risks and provide targeted interventions. Recognized by the Governor of Maharashtra, it set a benchmark in student mental health support with 85% predictive accuracy and a scalable impact model.</p>
-          <div class="tech-stack">
-            <i class="fab fa-android" title="Android"></i>
-            <i class="fab fa-java" title="Java"></i>
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fab fa-figma" title="Figma"></i>
-            <i class="fas fa-database" title="Firebase"></i>
-          </div>
+	  
+          <h3>Software Developer & Research Assistant</h3>
+        <p><strong>Western University & K. J. Somaiya Institute of Technology</strong> | July 2023 – May 2024</p>
+        <p><em>Mumbai, MH, India</em></p>
+        <ul>
+          <li>Led a cross-functional team to develop an AI-driven prediction model with 85.7% accuracy for predicting mental health states.</li>
+          <li>Conducted user research and iterative testing, refining survey methodology to enhance data accuracy by 8%.</li>
+          <li>Expanded the project into Mansik Shakti Foundation, recognized by the Governor of Maharashtra for mental health support.</li>
+        </ul>
+        <div class="tech-stack">
+          <i class="fab fa-python" title="Python"></i>
+          <i class="fas fa-brain" title="AI"></i>
+          <i class="fas fa-users" title="User Research"></i>
         </div>
-        <img src="mansik-removebg-preview (1).png" alt="Mansik Shakti Project Image">
       </div>
+      <img src="C:\J\Portfolio\MansikShaktiLogo.png" alt="Company Logo">
+    </div>
+         
       
       <div class="project" onclick="window.open('https://github.com/your-github-link-for-million-moons', '_blank')">
         <div class="project-content">
-          <h3>Million Moons Media Website</h3>
-          <p>Crafted a modern, intuitive UI for Million Moons Media, reflecting its expertise in digital marketing, SEO, and branding services. The design focused on seamless navigation and aesthetic appeal to highlight the agency's offerings and drive user engagement.</p>
-          <div class="tech-stack">
-            <i class="fab fa-figma" title="Figma"></i>
-            <i class="fab fa-html5" title="HTML"></i>
-            <i class="fab fa-css3-alt" title="CSS"></i>
-            <i class="fab fa-js" title="JavaScript"></i>
-          </div>
+<h3>UI/UX Developer</h3>
+        <p><strong>S5 Travel Solutions</strong> | April 2023 – Sep 2023</p>
+        <p><em>Mumbai, MH, India</em></p>
+        <ul>
+          <li>Conducted user research and A/B testing to optimize the user interface, increasing engagement by 25%.</li>
+          <li>Launched SEO & digital strategy, driving 10% growth in organic traffic and increasing customer acquisition & conversion rates.</li>
+          <li>Implemented data-driven UX optimizations like personalized itineraries and AI-powered recommendations.</li>
+        </ul>
+        <div class="tech-stack">
+          <i class="fab fa-figma" title="Figma"></i>
+          <i class="fab fa-html5" title="HTML"></i>
+          <i class="fab fa-css3-alt" title="CSS"></i>
+          <i class="fab fa-js" title="JavaScript"></i>
         </div>
-        <img src="Million Moons media_logo.jpg" alt="Million Moons Media Project Image">
       </div>
+      <img src="C:\J\Portfolio\SSTravelSLogo.png" alt="Company Logo">
     </div>
+
+	 <div class="project" onclick="window.open('https://github.com/your-github-link-for-million-moons', '_blank')">
+        <div class="project-content">
+<h3>Data Science Intern</h3>
+        <p><strong>Skill Vertex, An EdTech Organization</strong> | Jan 2022 – Mar 2022</p>
+        <p><em>Bengaluru, India</em></p>
+        <ul>
+          <li>Developed dynamic dashboards and analytical tools using Python and SQL to track KPIs, improving data interpretation efficiency by 15%.</li>
+          <li>Collaborated with stakeholders to align analytics with business objectives, integrating machine learning models to optimize product recommendations.</li>
+        </ul>
+        <div class="tech-stack">
+          <i class="fab fa-python" title="Python"></i>
+          <i class="fas fa-database" title="SQL"></i>
+          <i class="fas fa-chart-bar" title="Data Visualization"></i>
+        </div>
+      </div>
+      <img src="C:\J\Portfolio\SkillVertexLogo.png" alt="Company Logo">
+    </div>
+  </div>
+</section>
+  </div>
   </section>
+
+
+
 <section id="contact-section">
     <div class="contact-header">
       <h2>Connect with me</h2>
@@ -584,6 +738,7 @@
       </a>
     </div>
   </section>
+
   <!-- Footer with Contact -->
   <footer id="contact">
     <h2>Feel free to reach out to me for collaborations or any opportunities!</h2>
@@ -598,13 +753,11 @@
   <script>
     // JavaScript Code for Rotating Specialties
     const specialties = [
-      "Product Manager",
-      "Product Designer",
-      "UI/UX Designer", 
-      "Graphic Designer",
-      "Website Developer",
+      "Data Scientist",
+      "UI/UX Developer",
       "Software Developer",
-      "Data Analyst",
+      "Product Manager",
+      "Project Manager"
     ];
 
     let index = 0;
