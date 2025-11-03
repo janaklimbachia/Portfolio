@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
 
   <style>
     * {
@@ -23,6 +23,7 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      height: 100%;
     }
 
     body {
@@ -30,7 +31,15 @@
       font-family: 'Gabarito', sans-serif;
       color: #333;
       position: relative;
+
+      /* make footer stick to bottom */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
+
+    main { flex: 1 0 auto; }
+    footer { flex-shrink: 0; }
 
     /* NAVBAR glass style */
     nav {
@@ -73,13 +82,11 @@
       font-weight: 600;
     }
 
-    nav a:hover {
-      color: #00adb5;
-    }
+    nav a:hover { color: #00adb5; }
 
-    /* HERO / LANDING (no avatar here) */
+    /* HERO / LANDING (avatar removed here by request) */
     .hero {
-      min-height: 90vh;
+      min-height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -95,7 +102,7 @@
 
     .hero .content {
       flex: 1 1 320px;
-      max-width: 600px;
+      max-width: 900px;
     }
 
     .hero h1 {
@@ -105,15 +112,8 @@
       line-height: 1.4;
     }
 
-    .hero h1 .highlight-name {
-      font-weight: 700;
-    }
-
-    .hero h1 .specialty {
-      color: #333;
-      font-weight: 600;
-      font-style: italic;
-    }
+    .hero h1 .highlight-name { font-weight: 700; }
+    .hero h1 .specialty { color: #333; font-weight: 600; font-style: italic; }
 
     /* ABOUT + AVATAR + EXPERIENCE HEADER BLOCK */
     #about-experience-intro {
@@ -126,10 +126,7 @@
       z-index: 1;
     }
 
-    #about-experience-intro.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #about-experience-intro.visible { opacity: 1; transform: translateY(0); }
 
     .about-experience-toprow {
       display: flex;
@@ -139,15 +136,12 @@
       gap: 40px;
     }
 
+    /* increase to match experience title size */
     .about-blurb {
       flex: 1 1 400px;
-      color: #333;
-    }
-
-    /* Increase About text to match experience title size (1.5rem) */
-    .about-blurb p {
       font-size: 1.5rem;
       line-height: 1.5;
+      color: #333;
     }
 
     .about-avatar-wrapper {
@@ -159,7 +153,7 @@
 
     .about-avatar {
       width: 240px;
-      height: 340px;
+      height: 240px;
       border-radius: 50%;
       object-fit: cover;
       border: 4px solid rgba(0,0,0,0.1);
@@ -190,10 +184,7 @@
       z-index: 1;
     }
 
-    #experience.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #experience.visible { opacity: 1; transform: translateY(0); }
 
     .experience-list {
       display: flex;
@@ -207,7 +198,7 @@
       padding: 20px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       display: flex;
-      align-items: center;
+      align-items: center;              /* center logo vertically with text */
       justify-content: space-between;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
@@ -218,10 +209,7 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     }
 
-    .experience-content {
-      flex-grow: 1;
-      padding-right: 20px;
-    }
+    .experience-content { flex-grow: 1; padding-right: 20px; }
 
     .experience-content h3 {
       font-size: 1.5rem;
@@ -229,17 +217,9 @@
       color: #333;
     }
 
-    .role-meta {
-      font-size: 0.95rem;
-      margin-bottom: 10px;
-      color: #444;
-    }
+    .role-meta { font-size: 0.95rem; margin-bottom: 10px; color: #444; }
 
-    .experience-content p {
-      margin: 5px 0;
-      font-size: 0.95rem;
-      color: #444;
-    }
+    .experience-content p { margin: 5px 0; font-size: 0.95rem; color: #444; }
 
     .experience-content ul {
       list-style-type: disc;
@@ -249,18 +229,17 @@
       color: #333;
     }
 
-    .experience-content ul li {
-      margin-bottom: 6px;
-      line-height: 1.4;
-    }
+    .experience-content ul li { margin-bottom: 6px; line-height: 1.4; }
 
     .company-logo {
-      width: 600px;
-      min-width: 200px;
+      width: 120px;
+      min-width: 120px;
       height: 120px;
       border-radius: 15px;
       object-fit: contain;
       background-color: #fff;
+      display: block;
+      align-self: center;
     }
 
     .tech-stack {
@@ -275,9 +254,7 @@
       transition: color 0.3s ease;
     }
 
-    .tech-stack i:hover {
-      color: #00adb5;
-    }
+    .tech-stack i:hover { color: #00adb5; }
 
     /* PROJECTS SECTION */
     #projects {
@@ -290,10 +267,7 @@
       z-index: 1;
     }
 
-    #projects.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #projects.visible { opacity: 1; transform: translateY(0); }
 
     #projects h2 {
       text-align: center;
@@ -302,11 +276,7 @@
       color: #333;
     }
 
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    .projects { display: flex; flex-direction: column; gap: 20px; }
 
     .project {
       background-color: #fff;
@@ -320,28 +290,13 @@
       cursor: pointer;
     }
 
-    .project:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
+    .project:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
 
-    .project-content {
-      flex-grow: 1;
-      padding-right: 20px;
-    }
+    .project-content { flex-grow: 1; padding-right: 20px; }
 
-    .project-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
+    .project-content h3 { font-size: 1.5rem; margin-bottom: 10px; color: #333; }
 
-    .project-content p {
-      margin: 0;
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.4;
-    }
+    .project-content p { margin: 0; font-size: 0.95rem; color: #444; line-height: 1.4; }
 
     .projects .project img {
       width: 600px;
@@ -362,10 +317,7 @@
       z-index: 1;
     }
 
-    #education.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #education.visible { opacity: 1; transform: translateY(0); }
 
     #education h2 {
       text-align: center;
@@ -374,11 +326,7 @@
       color: #333;
     }
 
-    .education-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    .education-list { display: flex; flex-direction: column; gap: 20px; }
 
     .education-card {
       background-color: #fff;
@@ -392,34 +340,15 @@
       cursor: pointer;
     }
 
-    .education-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
+    .education-card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
 
-    .education-content {
-      flex-grow: 1;
-      padding-right: 20px;
-    }
+    .education-content { flex-grow: 1; padding-right: 20px; }
 
-    .education-content h3 {
-      font-size: 1.5rem;
-      margin-bottom: 8px;
-      color: #333;
-    }
+    .education-content h3 { font-size: 1.5rem; margin-bottom: 8px; color: #333; }
 
-    .education-meta {
-      font-size: 0.95rem;
-      color: #444;
-      margin-bottom: 10px;
-    }
+    .education-meta { font-size: 0.95rem; color: #444; margin-bottom: 10px; }
 
-    .education-content p {
-      margin: 4px 0;
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.4;
-    }
+    .education-content p { margin: 4px 0; font-size: 0.95rem; color: #444; line-height: 1.4; }
 
     .school-logo {
       width: 120px;
@@ -441,10 +370,7 @@
       z-index: 1;
     }
 
-    #certificates.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #certificates.visible { opacity: 1; transform: translateY(0); }
 
     #certificates h2 {
       text-align: center;
@@ -453,11 +379,7 @@
       color: #333;
     }
 
-    .certificate-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    .certificate-list { display: flex; flex-direction: column; gap: 20px; }
 
     .certificate-card {
       background-color: #fff;
@@ -465,8 +387,8 @@
       padding: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       display: flex;
-      flex-direction: row-reverse; /* logo on right */
-      align-items: flex-start;
+      flex-direction: row-reverse;      /* keep logos on right */
+      align-items: center;              /* vertically center logo and text */
       justify-content: space-between;
       gap: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -474,10 +396,7 @@
       text-align: left;
     }
 
-    .certificate-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
+    .certificate-card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
     .cert-logo-wrapper {
       width: 64px;
@@ -492,36 +411,15 @@
       border: 1px solid rgba(0,0,0,0.05);
     }
 
-    .cert-logo-wrapper img {
-      max-width: 80%;
-      max-height: 80%;
-      object-fit: contain;
-    }
+    .cert-logo-wrapper img { max-width: 80%; max-height: 80%; object-fit: contain; }
 
-    .certificate-textblock {
-      flex: 1;
-      padding-left: 20px;
-      padding-right: 0;
-    }
+    .certificate-textblock { flex: 1; padding-left: 20px; padding-right: 0; }
 
-    .certificate-textblock h3 {
-      font-size: 1.2rem;
-      margin-bottom: 6px;
-      color: #333;
-    }
+    .certificate-textblock h3 { font-size: 1.2rem; margin-bottom: 6px; color: #333; }
 
-    .certificate-meta {
-      font-size: 0.95rem;
-      color: #444;
-      margin-bottom: 8px;
-    }
+    .certificate-meta { font-size: 0.95rem; color: #444; margin-bottom: 8px; }
 
-    .certificate-textblock p {
-      font-size: 0.95rem;
-      color: #444;
-      margin: 0 0 8px 0;
-      line-height: 1.4;
-    }
+    .certificate-textblock p { font-size: 0.95rem; color: #444; margin: 0 0 8px 0; line-height: 1.4; }
 
     .certificate-textblock a {
       font-size: 0.9rem;
@@ -531,9 +429,7 @@
       word-break: break-word;
     }
 
-    .certificate-textblock a:hover {
-      text-decoration: underline;
-    }
+    .certificate-textblock a:hover { text-decoration: underline; }
 
     /* RESEARCH AND PUBLICATIONS */
     #research {
@@ -546,10 +442,7 @@
       z-index: 1;
     }
 
-    #research.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #research.visible { opacity: 1; transform: translateY(0); }
 
     #research h2 {
       text-align: center;
@@ -558,11 +451,7 @@
       color: #333;
     }
 
-    .research-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    .research-list { display: flex; flex-direction: column; gap: 20px; }
 
     .research-card {
       background-color: #fff;
@@ -573,43 +462,18 @@
       cursor: pointer;
     }
 
-    .research-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
+    .research-card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
-    .paper-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 6px;
-      line-height: 1.4;
-    }
+    .paper-title { font-size: 1.2rem; font-weight: 600; color: #333; margin-bottom: 6px; line-height: 1.4; }
 
-    .paper-meta {
-      font-size: 0.95rem;
-      color: #444;
-      margin-bottom: 8px;
-    }
+    .paper-meta { font-size: 0.95rem; color: #444; margin-bottom: 8px; }
 
-    .paper-desc {
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.4;
-      margin: 0 0 8px 0;
-    }
+    .paper-desc { font-size: 0.95rem; color: #444; line-height: 1.4; margin: 0 0 8px 0; }
 
     .paper-link {
-      font-size: 0.9rem;
-      color: #00adb5;
-      text-decoration: none;
-      display: inline-block;
-      word-break: break-word;
+      font-size: 0.9rem; color: #00adb5; text-decoration: none; display: inline-block; word-break: break-word;
     }
-
-    .paper-link:hover {
-      text-decoration: underline;
-    }
+    .paper-link:hover { text-decoration: underline; }
 
     /* BEYOND WORK */
     #interests {
@@ -622,10 +486,7 @@
       z-index: 1;
     }
 
-    #interests.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    #interests.visible { opacity: 1; transform: translateY(0); }
 
     #interests h2 {
       text-align: center;
@@ -661,33 +522,15 @@
       justify-content: flex-start;
     }
 
-    .interest-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    }
+    .interest-card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
-    .interest-icon {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: #333;
-    }
-
-    .interest-title {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #333;
-      margin-bottom: 6px;
-    }
-
-    .interest-desc {
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.4;
-    }
+    .interest-icon { font-size: 1.4rem; margin-bottom: 10px; color: #333; }
+    .interest-title { font-size: 1.1rem; font-weight: 600; color: #333; margin-bottom: 6px; }
+    .interest-desc { font-size: 0.95rem; color: #444; line-height: 1.4; }
 
     /* CONTACT SECTION */
     #contact-section {
-      min-height: 100vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -697,16 +540,8 @@
       z-index: 1;
     }
 
-    .contact-header {
-      margin-bottom: 60px;
-      text-align: center;
-    }
-
-    .contact-header h2 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: #333;
-    }
+    .contact-header { margin-bottom: 60px; text-align: center; }
+    .contact-header h2 { font-size: 3rem; margin-bottom: 20px; color: #333; }
 
     .social-links-container {
       background: rgba(255, 255, 255, 0.8);
@@ -730,25 +565,10 @@
       background: rgba(255, 255, 255, 0.5);
     }
 
-    .social-link:hover {
-      transform: translateX(10px);
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    .social-link i {
-      font-size: 24px;
-      margin-right: 15px;
-      width: 30px;
-    }
-
-    .social-link span {
-      font-size: 1.1rem;
-    }
-
-    .link-arrow {
-      margin-left: auto;
-      opacity: 0.5;
-    }
+    .social-link:hover { transform: translateX(10px); background: rgba(255, 255, 255, 0.8); }
+    .social-link i { font-size: 24px; margin-right: 15px; width: 30px; }
+    .social-link span { font-size: 1.1rem; }
+    .link-arrow { margin-left: auto; opacity: 0.5; }
 
     /* FOOTER */
     footer {
@@ -756,7 +576,6 @@
       text-align: center;
       padding: 20px;
       position: relative;
-      bottom: 0;
       left: 0;
       right: 0;
       width: 100%;
@@ -765,38 +584,22 @@
       align-items: center;
       margin: 0;
       z-index: 2;
+      background: transparent;
     }
 
-    .social-links {
-      display: flex;
-      gap: 20px;
-      margin-top: 10px;
-    }
+    .social-links { display: flex; gap: 20px; margin-top: 10px; }
+    .social-links a { color: #fff; font-size: 24px; transition: color 0.3s; }
+    .social-links a:hover { color: #00adb5; }
 
-    .social-links a {
-      color: #fff;
-      font-size: 24px;
-      transition: color 0.3s;
-    }
-
-    .social-links a:hover {
-      color: #00adb5;
-    }
-
-    /* BACKGROUND: replace everything with aurora animation */
+    /* -------- OVERWRITTEN BACKGROUND: Aurora + Starfield (inline) -------- */
     .animated-bg {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       overflow: hidden;
       pointer-events: none;
       z-index: -2;
     }
-
-    .animated-bg::before,
-    .animated-bg::after {
+    .animated-bg::before, .animated-bg::after {
       content: '';
       position: absolute;
       width: 200%;
@@ -804,37 +607,82 @@
       top: -50%;
       left: -50%;
     }
-
     .animated-bg::before {
       background:
-        radial-gradient(ellipse 800px 400px at 20% 30%, rgba(144, 238, 144, 0.2) 0%, transparent 50%),
-        radial-gradient(ellipse 600px 350px at 60% 50%, rgba(100, 200, 100, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse 700px 300px at 80% 70%, rgba(120, 220, 120, 0.18) 0%, transparent 50%);
+        radial-gradient(ellipse 800px 400px at 20% 30%, rgba(144, 238, 144, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 600px 350px at 60% 50%, rgba(100, 200, 100, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 700px 300px at 80% 70%, rgba(120, 220, 120, 0.07) 0%, transparent 50%);
       filter: blur(60px);
       animation: aurora1 25s ease-in-out infinite;
     }
-
     .animated-bg::after {
       background:
-        radial-gradient(ellipse 750px 380px at 40% 60%, rgba(134, 230, 134, 0.12) 0%, transparent 50%),
-        radial-gradient(ellipse 650px 320px at 70% 40%, rgba(110, 210, 110, 0.16) 0%, transparent 50%),
-        radial-gradient(ellipse 550px 280px at 30% 80%, rgba(90, 190, 90, 0.14) 0%, transparent 50%);
+        radial-gradient(ellipse 750px 380px at 40% 60%, rgba(134, 230, 134, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse 650px 320px at 70% 40%, rgba(110, 210, 110, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse 550px 280px at 30% 80%, rgba(90, 190, 90, 0.05) 0%, transparent 50%);
       filter: blur(70px);
       animation: aurora2 30s ease-in-out infinite;
       animation-delay: -15s;
     }
-
     @keyframes aurora1 {
       0%, 100% { transform: translate(0%, 0%) rotate(0deg) scale(1); opacity: 0.8; }
       25% { transform: translate(-10%, 5%) rotate(5deg) scale(1.05); opacity: 0.9; }
       50% { transform: translate(5%, -8%) rotate(-3deg) scale(0.95); opacity: 1; }
       75% { transform: translate(-5%, 10%) rotate(4deg) scale(1.02); opacity: 0.85; }
     }
-
     @keyframes aurora2 {
       0%, 100% { transform: translate(0%, 0%) rotate(0deg) scale(1); opacity: 0.7; }
       33% { transform: translate(8%, -6%) rotate(-4deg) scale(1.08); opacity: 0.9; }
       66% { transform: translate(-12%, 4%) rotate(6deg) scale(0.92); opacity: 0.95; }
+    }
+
+    /* Starfield layers (CSS uses variables set by JS) */
+    #stars, #stars2, #stars3 {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: -1;
+    }
+    #stars { background: transparent; animation: animStar 50s linear infinite; }
+    #stars::before {
+      content: ""; position: absolute; top: 0; left: 0;
+      width: 1px; height: 1px; background: transparent;
+      box-shadow: var(--stars-small);
+    }
+    #stars::after {
+      content: ""; position: absolute; top: -2000px; left: 0;
+      width: 1px; height: 1px; background: transparent;
+      box-shadow: var(--stars-small);
+    }
+
+    #stars2 { background: transparent; animation: animStar 100s linear infinite; }
+    #stars2::before {
+      content: ""; position: absolute; top: 0; left: 0;
+      width: 2px; height: 2px; background: transparent;
+      box-shadow: var(--stars-medium);
+    }
+    #stars2::after {
+      content: ""; position: absolute; top: -2000px; left: 0;
+      width: 2px; height: 2px; background: transparent;
+      box-shadow: var(--stars-medium);
+    }
+
+    #stars3 { background: transparent; animation: animStar 150s linear infinite; }
+    #stars3::before {
+      content: ""; position: absolute; top: 0; left: 0;
+      width: 3px; height: 3px; background: transparent;
+      box-shadow: var(--stars-big);
+    }
+    #stars3::after {
+      content: ""; position: absolute; top: -2000px; left: 0;
+      width: 3px; height: 3px; background: transparent;
+      box-shadow: var(--stars-big);
+    }
+
+    @keyframes animStar {
+      from { transform: translateY(0px); }
+      to   { transform: translateY(-2000px); }
     }
 
     /* RESPONSIVE RULES */
@@ -856,15 +704,8 @@
         row-gap: 8px;
       }
 
-      nav a {
-        font-size: 0.8rem;
-        margin: 0 8px;
-      }
-
-      .logo {
-        font-size: 1rem;
-        text-align: center;
-      }
+      nav a { font-size: 0.8rem; margin: 0 8px; }
+      .logo { font-size: 1rem; text-align: center; }
 
       .hero {
         flex-direction: column;
@@ -873,54 +714,24 @@
         padding-bottom: 40px;
       }
 
-      .hero h1 {
-        font-size: 2rem;
-        line-height: 1.4;
-      }
+      .hero h1 { font-size: 2rem; line-height: 1.4; }
 
-      .about-experience-toprow {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
+      .about-experience-toprow { flex-direction: column; align-items: center; text-align: center; }
+      .about-blurb { flex: 1 1 auto; padding: 0 10px; }
 
-      .about-blurb p {
-        font-size: 1.25rem; /* slightly smaller on mobile for readability */
-      }
-
-      .about-avatar-wrapper {
-        order: 2;
-        flex: 0 0 auto;
-      }
-
-      .about-avatar {
-        width: 180px;
-        height: 180px;
-      }
+      .about-avatar-wrapper { order: 2; flex: 0 0 auto; }
+      .about-avatar { width: 180px; height: 180px; }
 
       .experience-heading-wrapper h2,
-      #projects h2,
-      #education h2,
-      #certificates h2,
-      #research h2,
-      #interests h2 {
-        font-size: 2rem;
-      }
+      #projects h2, #education h2, #certificates h2, #research h2, #interests h2 { font-size: 2rem; }
 
-      .experience-card,
-      .project,
-      .education-card,
-      .certificate-card,
-      .research-card {
+      .experience-card, .project, .education-card, .certificate-card, .research-card {
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
       }
 
-      .experience-content,
-      .project-content,
-      .education-content,
-      .certificate-textblock {
+      .experience-content, .project-content, .education-content, .certificate-textblock {
         padding: 0 0 16px 0;
       }
 
@@ -938,29 +749,12 @@
         display: block;
       }
 
-      .certificate-card {
-        flex-direction: column;
-      }
+      .certificate-card { flex-direction: column; } /* vertical on mobile */
+      .cert-logo-wrapper { width: 80px; height: 80px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
+      .projects .project img { max-width: 100%; height: auto; }
+      .school-logo { max-width: 120px; }
 
-      .cert-logo-wrapper {
-        width: 80px;
-        height: 80px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-      }
-
-      .projects .project img {
-        max-width: 100%;
-        height: auto;
-      }
-
-      .school-logo {
-        max-width: 120px;
-      }
-
-      .social-links-container {
-        max-width: 320px;
-        width: 90%;
-      }
+      .social-links-container { max-width: 320px; width: 90%; }
     }
 
     /* CUSTOM CURSOR */
@@ -982,8 +776,11 @@
   <!-- Custom Cursor -->
   <div id="custom-cursor"></div>
 
-  <!-- Background (aurora animation only) -->
+  <!-- New Background Layers -->
   <div class="animated-bg"></div>
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
 
   <!-- Navbar -->
   <nav>
@@ -1001,407 +798,408 @@
     </div>
   </nav>
 
-  <!-- Hero Section (no avatar here) -->
-  <header class="hero">
-    <div class="content">
-      <h1>
-        Hi, I am <span class="highlight-name">Janak :)</span><br />
-        &amp; I am a <span class="specialty" id="specialty-text">Product Manager</span>
-      </h1>
-    </div>
-  </header>
-
-  <!-- About + Avatar + Experience heading -->
-  <section id="about-experience-intro">
-    <div class="about-experience-toprow">
-      <div class="about-blurb">
-        <p>
-          I build products that solve real problems and ship with real impact.
-          I have worked across product, AI, data and design,
-          leading discovery, shaping strategy and driving execution from idea to launch.
-          I care about building things people actually use and trust.
-        </p>
+  <main>
+    <!-- Hero Section (no avatar here) -->
+    <header class="hero">
+      <div class="content">
+        <h1>
+          Hi, I am <span class="highlight-name">Janak :)</span><br/>
+          &amp; I am a <span class="specialty" id="specialty-text">Product Manager</span>
+        </h1>
       </div>
-      <div class="about-avatar-wrapper">
-        <img src="Gemini_Generated_Image_d3jhukd3jhukd3jh.png" alt="Janak's Avatar" class="about-avatar" />
+    </header>
+
+    <!-- About + Avatar + Experience heading -->
+    <section id="about-experience-intro">
+      <div class="about-experience-toprow">
+        <div class="about-blurb">
+          <p>
+            I build products that solve real problems and ship with real impact.
+            I have worked across product, AI, data and design,
+            leading discovery, shaping strategy and driving execution from idea to launch.
+            I care about building things people actually use and trust.
+          </p>
+        </div>
+        <div class="about-avatar-wrapper">
+          <img src="Avatar_portfolioNEW.png" alt="Janak's Avatar" class="about-avatar">
+        </div>
       </div>
-    </div>
 
-    <div class="experience-heading-wrapper">
-      <h2>Professional Experience</h2>
-    </div>
-  </section>
+      <div class="experience-heading-wrapper">
+        <h2>Professional Experience</h2>
+      </div>
+    </section>
 
-  <!-- Experience Section -->
-  <section id="experience">
-    <div class="experience-list">
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="experience-list">
 
-      <div class="experience-card">
-        <div class="experience-content">
-          <h3>Product Management Intern</h3>
-          <div class="role-meta">
-            <strong>iTradeNetwork Inc.</strong> | Pleasanton, CA |
-            Jun 2025 – Sep 2025
+        <div class="experience-card">
+          <div class="experience-content">
+            <h3>Product Management Intern</h3>
+            <div class="role-meta">
+              <strong>iTradeNetwork Inc.</strong> | Pleasanton, CA |
+              Jun 2025 – Sep 2025
+            </div>
+            <p><em>Digital Software Solutions for Supply Chain Optimization</em></p>
+            <ul>
+              <li>Led discovery through 10 plus stakeholder interviews, system audits and data flow mapping, finding catalog issues and surfacing over 2 million dollars in cleanup cost and onboarding delays.</li>
+              <li>Defined product strategy and roadmap, wrote PRDs and PRFAQs and created 12 plus Jira tickets with design, engineering and GTM to speed delivery of client requirements by 60 percent.</li>
+              <li>Built and validated an AI driven product data orchestration prototype to normalize supplier attributes with 80 percent accuracy and cut manual handling by 70 percent across 100000 plus entries.</li>
+              <li>Modeled ROI and delivered a 6 month roadmap projected to unlock over 1 million dollars in annual savings and accelerate future AI initiatives.</li>
+            </ul>
+            <div class="tech-stack">
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fas fa-database" title="Data"></i>
+              <i class="fas fa-project-diagram" title="Roadmapping"></i>
+              <i class="fas fa-tasks" title="Jira"></i>
+            </div>
           </div>
-          <p><em>Digital Software Solutions for Supply Chain Optimization</em></p>
-          <ul>
-            <li>Led discovery through 10 plus stakeholder interviews, system audits and data flow mapping, finding catalog issues and surfacing over 2 million dollars in cleanup cost and onboarding delays.</li>
-            <li>Defined product strategy and roadmap, wrote PRDs and PRFAQs and created 12 plus Jira tickets with design, engineering and GTM to speed delivery of client requirements by 60 percent.</li>
-            <li>Built and validated an AI driven product data orchestration prototype to normalize supplier attributes with 80 percent accuracy and cut manual handling by 70 percent across 100000 plus entries.</li>
-            <li>Modeled ROI and delivered a 6 month roadmap projected to unlock over 1 million dollars in annual savings and accelerate future AI initiatives.</li>
-          </ul>
-          <div class="tech-stack">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-database" title="Data"></i>
-            <i class="fas fa-project-diagram" title="Roadmapping"></i>
-            <i class="fas fa-tasks" title="Jira"></i>
+          <img src="iTN-Logo.png" alt="iTradeNetwork Logo" class="company-logo">
+        </div>
+
+        <div class="experience-card">
+          <div class="experience-content">
+            <h3>AI Project Engineering Intern</h3>
+            <div class="role-meta">
+              <strong>LTIMindtree</strong> | Hanover, NH |
+              Mar 2025 – Jun 2025
+            </div>
+            <p><em>Global Digital Transformation and Tech Consulting</em></p>
+            <ul>
+              <li>Managed end to end delivery of an AI solution for product attribute extraction and taxonomy classification, iterating with A/B tests to cut processing time by 60 percent and reach about 90 percent accuracy.</li>
+              <li>Defined product strategy to remove a vendor onboarding bottleneck for a B2B SaaS platform, which accelerated vendor activation by 43 percent.</li>
+              <li>Shipped a scalable MVP with a friendly interface and fallback logic, cutting manual effort by 40 percent and making it usable for non technical teams.</li>
+              <li>Lowered integration cost to under 100 dollars per partner, supporting ARR impact for the platform.</li>
+            </ul>
+            <div class="tech-stack">
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fas fa-brain" title="AI / LLMs"></i>
+              <i class="fas fa-layer-group" title="Taxonomy"></i>
+              <i class="fas fa-code-branch" title="MVP Delivery"></i>
+            </div>
+          </div>
+          <img src="LTIMindtree_Logo.svg.png" alt="LTIMindtree Logo" class="company-logo">
+        </div>
+
+        <div class="experience-card">
+          <div class="experience-content">
+            <h3>Product Apprentice  AI Integration Consultant</h3>
+            <div class="role-meta">
+              <strong>Radiation Detection Company</strong> | Hanover, NH |
+              Sep 2024 – Nov 2024
+            </div>
+            <p><em>Dosimetry Badge Solution Provider</em></p>
+            <ul>
+              <li>Worked with the VP of Product and engineering leads on automation opportunities across core workflows, shaping a 3 phase AI adoption roadmap projected to generate 1.19 million dollars in operational ROI.</li>
+              <li>Scoped requirements and delivered dashboard driven risk intelligence models on AWS EC2, cutting manual review time by 70 percent and producing 475 thousand dollars in annual savings.</li>
+              <li>Analyzed 5 years of sales and churn signals to define upsell triggers with 81.71 percent precision, protecting 875 thousand dollars in retention and creating 300 thousand dollars plus in new revenue.</li>
+            </ul>
+            <div class="tech-stack">
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fas fa-chart-line" title="Data Analysis"></i>
+              <i class="fas fa-cogs" title="Automation"></i>
+              <i class="fab fa-aws" title="AWS EC2"></i>
+            </div>
+          </div>
+          <img src="RDCLogo.png" alt="Radiation Detection Company Logo" class="company-logo">
+        </div>
+
+        <div class="experience-card">
+          <div class="experience-content">
+            <h3>Founding Product Developer</h3>
+            <div class="role-meta">
+              <strong>Mansik Shakti</strong> | Mumbai, MH, India |
+              Jan 2023 – May 2024
+            </div>
+            <p><em>AI Powered Mental Health Platform</em></p>
+            <ul>
+              <li>Built and launched an AI driven mental health platform from concept, deployed an MVP across 4 countries and reached 100000 plus users while securing non profit status.</li>
+              <li>Ran 650 plus interviews and primary market research to shape feature set and strategy, delivering an 85.7 percent accurate recommendation engine and improving data quality by 8 percent.</li>
+              <li>Coordinated design, engineering and research to cut false positives by 20 percent and drive adoption.</li>
+            </ul>
+            <div class="tech-stack">
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fas fa-brain" title="AI / ML"></i>
+              <i class="fas fa-users" title="User Research"></i>
+            </div>
+          </div>
+          <img src="MansikShaktiLogo.png" alt="Mansik Shakti Logo" class="company-logo">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects">
+
+        <div class="project" onclick="window.open('https://github.com/janaklimbachia/Moodify', '_blank')">
+          <div class="project-content">
+            <h3>Moodify - Mental Health AI Companion</h3>
+            <p>Moodify is an AI-powered mental health solution that integrates emotion detection, a chatbot, and anonymous chat rooms to combat mental health stigma and provide accessible support. It achieved 82% detection accuracy and received positive user feedback for its impactful and user-friendly design.</p>
+            <div class="tech-stack">
+              <i class="fab fa-android" title="Android"></i>
+              <i class="fab fa-java" title="Java"></i>
+              <i class="fab fa-figma" title="Figma"></i>
+              <i class="fas fa-brain" title="AI"></i>
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fas fa-database" title="Firebase"></i>
+            </div>
+          </div>
+          <img src="moodifylogo_new.png" alt="Moodify Project Image">
+        </div>
+
+        <div class="project" onclick="window.open('https://github.com/janaklimbachia/Shabri-Voice-Controlled-AI-Assistant', '_blank')">
+          <div class="project-content">
+            <h3>Shabri - AI Assistant</h3>
+            <p>Shabri is a voice-authorized assistant for personal devices, helping with tasks like reading to-do lists, scheduling meetings, and notifying trends. It's trained on various accents and decibel levels for universal adaptability.</p>
+            <div class="tech-stack">
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fas fa-microphone" title="Voice Recognition"></i>
+              <i class="fas fa-robot" title="AI"></i>
+            </div>
+          </div>
+          <img src="shabri.png" alt="Shabri Project Image">
+        </div>
+
+        <div class="project" onclick="window.open('https://github.com/janaklimbachia/Deep-Learning-Intelligent-Chatbot', '_blank')">
+          <div class="project-content">
+            <h3>Deep Learning Chatbot</h3>
+            <p>A self-learning chatbot developed using RNN in Python and TensorFlow. It improves based on user feedback and integrates various APIs for enhanced functionality.</p>
+            <div class="tech-stack">
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fas fa-robot" title="AI"></i>
+              <i class="fab fa-tensorflow" title="TensorFlow"></i>
+            </div>
+          </div>
+          <img src="DL-Chatbot.png" alt="Chatbot Project Image">
+        </div>
+
+        <div class="project" onclick="window.open('https://github.com/janaklimbachia/Farmers-Care-Portal', '_blank')">
+          <div class="project-content">
+            <h3>Farmer's Care Portal</h3>
+            <p>A portal connecting farmers directly with consumers, eliminating middlemen. It uses SQL for the database and TKinter for the front end, ensuring fair prices and fresh produce.</p>
+            <div class="tech-stack">
+              <i class="fab fa-python" title="Python"></i>
+              <i class="fas fa-database" title="SQL"></i>
+              <i class="fas fa-leaf" title="Agriculture"></i>
+            </div>
+          </div>
+          <img src="FarmerCare.png" alt="Farmer's Care Project Image">
+        </div>
+
+        <div class="project" onclick="window.open('https://github.com/janaklimbachia/SomaiyaITSolutions', '_blank')">
+          <div class="project-content">
+            <h3>IT Solutions ERP</h3>
+            <p>An ERP platform for tracking project progress and member assignments. Developed using NetBeans IDE, Java, and MySQL, it offers different views for members, managers, and admins.</p>
+            <div class="tech-stack">
+              <i class="fab fa-java" title="Java"></i>
+              <i class="fas fa-database" title="MySQL"></i>
+              <i class="fas fa-network-wired" title="ERP"></i>
+            </div>
+          </div>
+          <img src="ITSolutionsERP.png" alt="ERP Project Image">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <h2>Education</h2>
+      <div class="education-list">
+
+        <div class="education-card">
+          <div class="education-content">
+            <h3>Master's in Engineering Management (MEM)</h3>
+            <div class="education-meta">
+              Dartmouth College | Hanover, NH | Expected Graduation: December 2025
+            </div>
+            <p>Product management, AI strategy, data analytics, operations, finance and go to market.</p>
+            <p>Coursework includes Product Management in Tech, Digital Operations, Data Analytics, Accounting and Finance, Negotiations.</p>
+          </div>
+          <img src="D-Pine_RGB.png" alt="Dartmouth Logo" class="school-logo">
+        </div>
+
+        <div class="education-card">
+          <div class="education-content">
+            <h3>B.Tech in Artificial Intelligence &amp; Data Science</h3>
+            <div class="education-meta">
+              K. J. Somaiya Institute of Technology | Mumbai, India
+            </div>
+            <p>Minor in Blockchain Technology.</p>
+            <p>Worked on applied machine learning, deep learning, data products and user facing AI features.</p>
+          </div>
+          <img src="Somaiya Logo.png" alt="Somaiya Logo" class="school-logo">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Certificates and Honors Section -->
+    <section id="certificates">
+      <h2>Certificates and Honors</h2>
+      <div class="certificate-list">
+
+        <div class="certificate-card">
+          <div class="certificate-textblock">
+            <h3>Product Management First Steps</h3>
+            <div class="certificate-meta">Project Management Institute · Issued Mar 2025</div>
+            <p>Foundation in product thinking, early roadmap work, stakeholder alignment and experiment driven iteration.</p>
+            <a href="https://www.linkedin.com/in/janak-limbachia/details/certifications/" target="_blank">View credential</a>
+          </div>
+          <div class="cert-logo-wrapper">
+            <img src="pmi_logo_ogShare.png" alt="PMI Logo">
           </div>
         </div>
-        <img src="iTN-Logo.png" alt="iTradeNetwork Logo" class="company-logo" />
-      </div>
 
-      <div class="experience-card">
-        <div class="experience-content">
-          <h3>AI Project Engineering Intern</h3>
-          <div class="role-meta">
-            <strong>LTIMindtree</strong> | Hanover, NH |
-            Mar 2025 – Jun 2025
+        <div class="certificate-card">
+          <div class="certificate-textblock">
+            <h3>AWS Academy Cloud Foundations</h3>
+            <div class="certificate-meta">Amazon Web Services (AWS) · Issued Apr 2023</div>
+            <p>Covered core AWS concepts and cloud fundamentals including compute, storage, networking, provisioning and basic cloud architecture.</p>
+            <a href="https://www.credly.com/go/faXXFHeneJvV6l3nlSWYzw" target="_blank">View credential</a>
           </div>
-          <p><em>Global Digital Transformation and Tech Consulting</em></p>
-          <ul>
-            <li>Managed end to end delivery of an AI solution for product attribute extraction and taxonomy classification, iterating with A B tests to cut processing time by 60 percent and reach about 90 percent accuracy.</li>
-            <li>Defined product strategy to remove a vendor onboarding bottleneck for a B2B SaaS platform, which accelerated vendor activation by 43 percent.</li>
-            <li>Shipped a scalable MVP with a friendly interface and fallback logic, cutting manual effort by 40 percent and making it usable for non technical teams.</li>
-            <li>Lowered integration cost to under 100 dollars per partner, supporting ARR impact for the platform.</li>
-          </ul>
-          <div class="tech-stack">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-brain" title="AI / LLMs"></i>
-            <i class="fas fa-layer-group" title="Taxonomy"></i>
-            <i class="fas fa-code-branch" title="MVP Delivery"></i>
+          <div class="cert-logo-wrapper">
+            <img src="Amazon_Web_Services_Logo.svg.png" alt="AWS Logo">
           </div>
         </div>
-        <img src="gPG7or6t.jpg" alt="LTIMindtree Logo" class="company-logo" />
-      </div>
 
-      <div class="experience-card">
-        <div class="experience-content">
-          <h3>Product Apprentice  AI Integration Consultant</h3>
-          <div class="role-meta">
-            <strong>Radiation Detection Company</strong> | Hanover, NH |
-            Sep 2024 – Nov 2024
+        <div class="certificate-card">
+          <div class="certificate-textblock">
+            <h3>Cutshort Certified Python  Advanced</h3>
+            <div class="certificate-meta">Cutshort · Credential ID 67078 · Issued May 2022</div>
+            <p>Practical certification in advanced Python use for real problem solving and production style scripting.</p>
+            <a href="https://cutshort.io/certificate/67078" target="_blank">View credential</a>
           </div>
-          <p><em>Dosimetry Badge Solution Provider</em></p>
-          <ul>
-            <li>Worked with the VP of Product and engineering leads on automation opportunities across core workflows, shaping a 3 phase AI adoption roadmap projected to generate 1.19 million dollars in operational ROI.</li>
-            <li>Scoped requirements and delivered dashboard driven risk intelligence models on AWS EC2, cutting manual review time by 70 percent and producing 475 thousand dollars in annual savings.</li>
-            <li>Analyzed 5 years of sales and churn signals to define upsell triggers with 81.71 percent precision, protecting 875 thousand dollars in retention and creating 300 thousand dollars plus in new revenue.</li>
-          </ul>
-          <div class="tech-stack">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-chart-line" title="Data Analysis"></i>
-            <i class="fas fa-cogs" title="Automation"></i>
-            <i class="fab fa-aws" title="AWS EC2"></i>
+          <div class="cert-logo-wrapper">
+            <img src="00525eb1-861d-450e-aded-1102c0cae4e7.png" alt="Cutshort Logo">
           </div>
         </div>
-        <img src="RDCLogo.png" alt="Radiation Detection Company Logo" class="company-logo" />
-      </div>
 
-      <div class="experience-card">
-        <div class="experience-content">
-          <h3>Founding Product Developer</h3>
-          <div class="role-meta">
-            <strong>Mansik Shakti</strong> | Mumbai, MH, India |
-            Jan 2023 – May 2024
+        <div class="certificate-card">
+          <div class="certificate-textblock">
+            <h3>Data Science</h3>
+            <div class="certificate-meta">Skill Vertex · Issued Mar 2022</div>
+            <p>Exposure to applied analytics and data science workflows, from data handling to insight generation.</p>
+            <a href="https://www.linkedin.com/in/janak-limbachia/details/certifications/" target="_blank">View credential</a>
           </div>
-          <p><em>AI Powered Mental Health Platform</em></p>
-          <ul>
-            <li>Built and launched an AI driven mental health platform from concept, deployed an MVP across 4 countries and reached 100000 plus users while securing non profit status.</li>
-            <li>Ran 650 plus interviews and primary market research to shape feature set and strategy, delivering an 85.7 percent accurate recommendation engine and improving data quality by 8 percent.</li>
-            <li>Coordinated design, engineering and research to cut false positives by 20 percent and drive adoption.</li>
-          </ul>
-          <div class="tech-stack">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-brain" title="AI / ML"></i>
-            <i class="fas fa-users" title="User Research"></i>
+          <div class="cert-logo-wrapper">
+            <img src="SkillVertexLogo.png" alt="Skill Vertex Logo">
           </div>
         </div>
-        <img src="MansikShaktiLogo.png" alt="Mansik Shakti Logo" class="company-logo" />
+
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Research and Publications Section -->
+    <section id="research">
+      <h2>Research and Publications</h2>
+      <div class="research-list">
 
-  <!-- Projects Section -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-
-      <div class="project" onclick="window.open('https://github.com/janaklimbachia/Moodify', '_blank')">
-        <div class="project-content">
-          <h3>Moodify - Mental Health AI Companion</h3>
-          <p>Moodify is an AI powered mental health solution that integrates emotion detection, a chatbot, and anonymous chat rooms to combat mental health stigma and provide accessible support. It achieved 82 percent detection accuracy and received positive user feedback for its impactful and user friendly design.</p>
-          <div class="tech-stack">
-            <i class="fab fa-android" title="Android"></i>
-            <i class="fab fa-java" title="Java"></i>
-            <i class="fab fa-figma" title="Figma"></i>
-            <i class="fas fa-brain" title="AI"></i>
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-database" title="Firebase"></i>
+        <div class="research-card">
+          <div class="paper-title">The Making of Moodify: Weaving AI Technologies into a Personalized Mental Health Tapestry</div>
+          <div class="paper-meta">IJRAR  International Journal of Research and Analytical Reviews  · Apr 29, 2024</div>
+          <div class="paper-desc">
+            Moodify is an Android application focused on mental health support for young adults aged 20 to 35.
+            It combines three core systems:
+            1 an emotion detection module using Google ML Kit facial analysis to predict mood and recommend tailored music and podcasts
+            2 an autonomous chatbot powered by OpenAI API with speech recognition and text to speech for confidential support
+            3 anonymous group chat rooms backed by Redis Cloud DB to let users talk safely without revealing identity.
+            The app is built to lower stigma and give private, real time help.
           </div>
+          <a class="paper-link" href="https://ijrar.org/papers/IJRAR24B2455.pdf" target="_blank">Read publication</a>
         </div>
-        <img src="moodifylogo_new.png" alt="Moodify Project Image">
-      </div>
 
-      <div class="project" onclick="window.open('https://github.com/janaklimbachia/Shabri-Voice-Controlled-AI-Assistant', '_blank')">
-        <div class="project-content">
-          <h3>Shabri - AI Assistant</h3>
-          <p>Shabri is a voice authorized assistant for personal devices, helping with tasks like reading to do lists, scheduling meetings, and notifying trends. It is trained on various accents and decibel levels for universal adaptability.</p>
-          <div class="tech-stack">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-microphone" title="Voice Recognition"></i>
-            <i class="fas fa-robot" title="AI"></i>
+        <div class="research-card">
+          <div class="paper-title">Role of Neural Networks and Cookies using AI in Data Privacy Policies</div>
+          <div class="paper-meta">IJNRD  International Journal of Novel Research and Development  · Apr 15, 2023</div>
+          <div class="paper-desc">
+            This paper studies how large tech companies shape and sometimes manipulate user tracking and consent.
+            It explains how cookies, behavioral profiling and neural networks are used to capture data, predict behavior and influence decisions under the cover of privacy policies.
           </div>
+          <a class="paper-link" href="https://www.ijnrd.org/papers/IJNRD2304231.pdf" target="_blank">Read publication</a>
         </div>
-        <img src="shabri.png" alt="Shabri Project Image">
-      </div>
 
-      <div class="project" onclick="window.open('https://github.com/janaklimbachia/Deep-Learning-Intelligent-Chatbot', '_blank')">
-        <div class="project-content">
-          <h3>Deep Learning Chatbot</h3>
-          <p>A self learning chatbot developed using RNN in Python and TensorFlow. It improves based on user feedback and integrates various APIs for enhanced functionality.</p>
-          <div class="tech-stack">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-robot" title="AI"></i>
-            <i class="fab fa-tensorflow" title="TensorFlow"></i>
+        <div class="research-card">
+          <div class="paper-title">MOODIFY: Tailored, Personal and Multifaceted AI Assistant for Young Adult Mental Health Issues</div>
+          <div class="paper-meta">IEEE Xplore</div>
+          <div class="paper-desc">
+            Presents Moodify as an AI driven mental health companion that can
+            1 detect emotion from facial structure and classify mood with 82 percent accuracy
+            2 offer a private chatbot so users can talk without needing to reveal identity
+            3 create anonymous social rooms where people can connect over shared struggles.
+            The work positions Moodify as an early intervention tool for stress, anxiety and isolation.
           </div>
+          <a class="paper-link" href="https://ieeexplore.ieee.org/document/10455044/" target="_blank">Read publication</a>
         </div>
-        <img src="DL-Chatbot.png" alt="Chatbot Project Image">
+
       </div>
+    </section>
 
-      <div class="project" onclick="window.open('https://github.com/janaklimbachia/Farmers-Care-Portal', '_blank')">
-        <div class="project-content">
-          <h3>Farmer's Care Portal</h3>
-          <p>A portal connecting farmers directly with consumers, eliminating middlemen. It uses SQL for the database and TKinter for the front end, ensuring fair prices and fresh produce.</p>
-          <div class="tech-stack">
-            <i class="fab fa-python" title="Python"></i>
-            <i class="fas fa-database" title="SQL"></i>
-            <i class="fas fa-leaf" title="Agriculture"></i>
-          </div>
+    <!-- Personal Interests Section -->
+    <section id="interests">
+      <h2>Beyond Work</h2>
+      <div class="interests-subtitle">Things I care about outside shipping product.</div>
+
+      <div class="interests-grid">
+        <div class="interest-card">
+          <div class="interest-icon"><i class="fas fa-film"></i></div>
+          <div class="interest-title">Cinephile</div>
+          <div class="interest-desc">I am a movie person. I study direction, pacing and performance like craft and I keep myself updated on good cinema.</div>
         </div>
-        <img src="FarmerCare.png" alt="Farmer's Care Project Image">
-      </div>
 
-      <div class="project" onclick="window.open('https://github.com/janaklimbachia/SomaiyaITSolutions', '_blank')">
-        <div class="project-content">
-          <h3>IT Solutions ERP</h3>
-          <p>An ERP platform for tracking project progress and member assignments. Developed using NetBeans IDE, Java, and MySQL, it offers different views for members, managers, and admins.</p>
-          <div class="tech-stack">
-            <i class="fab fa-java" title="Java"></i>
-            <i class="fas fa-database" title="MySQL"></i>
-            <i class="fas fa-network-wired" title="ERP"></i>
-          </div>
+        <div class="interest-card">
+          <div class="interest-icon"><i class="fas fa-music"></i></div>
+          <div class="interest-title">Melophile</div>
+          <div class="interest-desc">I collect sounds, build playlists and work on small compositions inspired by the songs and genres I loop.</div>
         </div>
-        <img src="ITSolutionsERP.png" alt="ERP Project Image">
-      </div>
 
-    </div>
-  </section>
-
-  <!-- Education Section -->
-  <section id="education">
-    <h2>Education</h2>
-    <div class="education-list">
-
-      <div class="education-card">
-        <div class="education-content">
-          <h3>Master's in Engineering Management (MEM)</h3>
-          <div class="education-meta">
-            Dartmouth College | Hanover, NH | Expected Graduation: December 2025
-          </div>
-          <p>Product management, AI strategy, data analytics, operations, finance and go to market.</p>
-          <p>Coursework includes Product Management in Tech, Digital Operations, Data Analytics, Accounting and Finance, Negotiations.</p>
+        <div class="interest-card">
+          <div class="interest-icon"><i class="fas fa-baseball-ball"></i></div>
+          <div class="interest-title">Cricket</div>
+          <div class="interest-desc">I grew up playing. I still love being on the field. Reading timing and pressure in real time is addictive.</div>
         </div>
-        <img src="D-Pine_RGB.png" alt="Dartmouth Logo" class="school-logo">
-      </div>
 
-      <div class="education-card">
-        <div class="education-content">
-          <h3>B.Tech in Artificial Intelligence &amp; Data Science</h3>
-          <div class="education-meta">
-            K. J. Somaiya Institute of Technology | Mumbai, India
-          </div>
-          <p>Minor in Blockchain Technology.</p>
-          <p>Worked on applied machine learning, deep learning, data products and user facing AI features.</p>
-        </div>
-        <img src="Somaiya Logo.png" alt="Somaiya Logo" class="school-logo">
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Certificates and Honors Section -->
-  <section id="certificates">
-    <h2>Certificates and Honors</h2>
-    <div class="certificate-list">
-
-      <div class="certificate-card">
-        <div class="certificate-textblock">
-          <h3>Product Management First Steps</h3>
-          <div class="certificate-meta">
-            Project Management Institute · Issued Mar 2025
-          </div>
-          <p>Foundation in product thinking, early roadmap work, stakeholder alignment and experiment driven iteration.</p>
-          <a href="https://www.linkedin.com/in/janak-limbachia/details/certifications/" target="_blank">View credential</a>
-        </div>
-        <div class="cert-logo-wrapper">
-          <img src="pmi_logo.png" alt="PMI Logo">
+        <div class="interest-card">
+          <div class="interest-icon"><i class="fas fa-pen-nib"></i></div>
+          <div class="interest-title">Writing</div>
+          <div class="interest-desc">I write short fiction and story ideas. A lot of it is character driven and emotional. That also shapes how I think about product stories.</div>
         </div>
       </div>
+    </section>
 
-      <div class="certificate-card">
-        <div class="certificate-textblock">
-          <h3>AWS Academy Cloud Foundations</h3>
-          <div class="certificate-meta">
-            Amazon Web Services (AWS) · Issued Apr 2023
-          </div>
-          <p>Covered core AWS concepts and cloud fundamentals including compute, storage, networking, provisioning and basic cloud architecture.</p>
-          <a href="https://www.credly.com/go/faXXFHeneJvV6l3nlSWYzw" target="_blank">View credential</a>
-        </div>
-        <div class="cert-logo-wrapper">
-          <img src="aws_logo.png" alt="AWS Logo">
-        </div>
+    <!-- Contact Section -->
+    <section id="contact-section">
+      <div class="contact-header">
+        <h2>Connect with me</h2>
       </div>
-
-      <div class="certificate-card">
-        <div class="certificate-textblock">
-          <h3>Cutshort Certified Python  Advanced</h3>
-          <div class="certificate-meta">
-            Cutshort · Credential ID 67078 · Issued May 2022
-          </div>
-          <p>Practical certification in advanced Python use for real problem solving and production style scripting.</p>
-          <a href="https://cutshort.io/certificate/67078" target="_blank">View credential</a>
-        </div>
-        <div class="cert-logo-wrapper">
-          <img src="cutshort_logo.png" alt="Cutshort Logo">
-        </div>
+      <div class="social-links-container">
+        <a href="https://linkedin.com/in/janak-limbachia" class="social-link" target="_blank">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+          <span class="link-arrow">→</span>
+        </a>
+        <a href="mailto:janak.j.limbachia.th@dartmouth.edu" class="social-link">
+          <i class="far fa-envelope"></i>
+          <span>Email</span>
+          <span class="link-arrow">→</span>
+        </a>
+        <a href="https://github.com/janaklimbachia" class="social-link" target="_blank">
+          <i class="fab fa-github"></i>
+          <span>Github</span>
+          <span class="link-arrow">→</span>
+        </a>
+        <a href="https://instagram.com/thyjanak" class="social-link" target="_blank">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram</span>
+          <span class="link-arrow">→</span>
+        </a>
       </div>
-
-      <div class="certificate-card">
-        <div class="certificate-textblock">
-          <h3>Data Science</h3>
-          <div class="certificate-meta">
-            Skill Vertex · Issued Mar 2022
-          </div>
-          <p>Exposure to applied analytics and data science workflows, from data handling to insight generation.</p>
-          <a href="https://www.linkedin.com/in/janak-limbachia/details/certifications/" target="_blank">View credential</a>
-        </div>
-        <div class="cert-logo-wrapper">
-          <img src="skillvertex_logo.png" alt="Skill Vertex Logo">
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Research and Publications Section -->
-  <section id="research">
-    <h2>Research and Publications</h2>
-    <div class="research-list">
-
-      <div class="research-card">
-        <div class="paper-title">The Making of Moodify: Weaving AI Technologies into a Personalized Mental Health Tapestry</div>
-        <div class="paper-meta">IJRAR  International Journal of Research and Analytical Reviews  · Apr 29, 2024</div>
-        <div class="paper-desc">
-          Moodify is an Android application focused on mental health support for young adults aged 20 to 35. It combines three core systems:
-          1 an emotion detection module using Google ML Kit facial analysis to predict mood and recommend tailored music and podcasts
-          2 an autonomous chatbot powered by OpenAI API with speech recognition and text to speech for confidential support
-          3 anonymous group chat rooms backed by Redis Cloud DB to let users talk safely without revealing identity.
-        </div>
-        <a class="paper-link" href="https://ijrar.org/papers/IJRAR24B2455.pdf" target="_blank">Read publication</a>
-      </div>
-
-      <div class="research-card">
-        <div class="paper-title">Role of Neural Networks and Cookies using AI in Data Privacy Policies</div>
-        <div class="paper-meta">IJNRD  International Journal of Novel Research and Development  · Apr 15, 2023</div>
-        <div class="paper-desc">
-          This paper studies how large tech companies shape and sometimes manipulate user tracking and consent. It explains how cookies, behavioral profiling and neural networks are used to capture data, predict behavior and influence decisions under the cover of privacy policies.
-        </div>
-        <a class="paper-link" href="https://www.ijnrd.org/papers/IJNRD2304231.pdf" target="_blank">Read publication</a>
-      </div>
-
-      <div class="research-card">
-        <div class="paper-title">MOODIFY: Tailored, Personal and Multifaceted AI Assistant for Young Adult Mental Health Issues</div>
-        <div class="paper-meta">IEEE Xplore</div>
-        <div class="paper-desc">
-          Presents Moodify as an AI driven mental health companion that can 1 detect emotion from facial structure and classify mood with 82 percent accuracy 2 offer a private chatbot so users can talk without needing to reveal identity 3 create anonymous social rooms where people can connect over shared struggles.
-        </div>
-        <a class="paper-link" href="https://ieeexplore.ieee.org/document/10455044/" target="_blank">Read publication</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Personal Interests Section -->
-  <section id="interests">
-    <h2>Beyond Work</h2>
-    <div class="interests-subtitle">Things I care about outside shipping product.</div>
-
-    <div class="interests-grid">
-      <div class="interest-card">
-        <div class="interest-icon"><i class="fas fa-film"></i></div>
-        <div class="interest-title">Cinephile</div>
-        <div class="interest-desc">I am a movie person. I study direction, pacing and performance like craft and I keep myself updated on good cinema.</div>
-      </div>
-
-      <div class="interest-card">
-        <div class="interest-icon"><i class="fas fa-music"></i></div>
-        <div class="interest-title">Melophile</div>
-        <div class="interest-desc">I collect sounds, build playlists and work on small compositions inspired by the songs and genres I loop.</div>
-      </div>
-
-      <div class="interest-card">
-        <div class="interest-icon"><i class="fas fa-baseball-ball"></i></div>
-        <div class="interest-title">Cricket</div>
-        <div class="interest-desc">I grew up playing. I still love being on the field. Reading timing and pressure in real time is addictive.</div>
-      </div>
-
-      <div class="interest-card">
-        <div class="interest-icon"><i class="fas fa-pen-nib"></i></div>
-        <div class="interest-title">Writing</div>
-        <div class="interest-desc">I write short fiction and story ideas. A lot of it is character driven and emotional. That also shapes how I think about product stories.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact-section">
-    <div class="contact-header">
-      <h2>Connect with me</h2>
-    </div>
-    <div class="social-links-container">
-      <a href="https://linkedin.com/in/janak-limbachia" class="social-link" target="_blank">
-        <i class="fab fa-linkedin"></i>
-        <span>LinkedIn</span>
-        <span class="link-arrow">→</span>
-      </a>
-      <a href="mailto:janak.j.limbachia.th@dartmouth.edu" class="social-link">
-        <i class="far fa-envelope"></i>
-        <span>Email</span>
-        <span class="link-arrow">→</span>
-      </a>
-      <a href="https://github.com/janaklimbachia" class="social-link" target="_blank">
-        <i class="fab fa-github"></i>
-        <span>Github</span>
-        <span class="link-arrow">→</span>
-      </a>
-      <a href="https://instagram.com/thyjanak" class="social-link" target="_blank">
-        <i class="fab fa-instagram"></i>
-        <span>Instagram</span>
-        <span class="link-arrow">→</span>
-      </a>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer id="contact">
@@ -1409,7 +1207,7 @@
     <p>&copy; 2025 Janak Limbachia. All Rights Reserved.</p>
   </footer>
 
-  <!-- JS -->
+  <!-- Specialty rotation + reveal + cursor + star variables -->
   <script>
     // Specialty rotation
     const specialties = [
@@ -1419,29 +1217,21 @@
       "Software Developer",
       "Project Manager"
     ];
-
     let index = 0;
     const specialtyText = document.getElementById('specialty-text');
-
     function rotateSpecialty() {
       specialtyText.textContent = specialties[index];
       index = (index + 1) % specialties.length;
     }
-
     setInterval(rotateSpecialty, 1000);
 
     // Reveal on scroll
     const revealSections = document.querySelectorAll(
       '#about-experience-intro, #experience, #projects, #education, #certificates, #research, #interests, #contact-section'
     );
-    const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
-
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, observerOptions);
-
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { root: null, rootMargin: '0px', threshold: 0.1 });
     revealSections.forEach(section => observer.observe(section));
 
     // Custom Cursor behavior
@@ -1449,7 +1239,6 @@
     document.addEventListener('mousemove', (e) => {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
-
       const elemBelow = document.elementFromPoint(e.clientX, e.clientY);
       if (elemBelow && (elemBelow.closest('footer') || elemBelow.closest('nav'))) {
         cursor.style.borderColor = '#cfcece';
@@ -1458,18 +1247,27 @@
       }
     });
 
-    // Hover enlarge on interactive cards
     const hoverCards = document.querySelectorAll(
       '.project, .experience-card, .education-card, .certificate-card, .research-card, .interest-card, .social-link'
     );
     hoverCards.forEach(card => {
-      card.addEventListener('mouseover', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(2)';
-      });
-      card.addEventListener('mouseout', () => {
-        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-      });
+      card.addEventListener('mouseover', () => { cursor.style.transform = 'translate(-50%, -50%) scale(2)'; });
+      card.addEventListener('mouseout',  () => { cursor.style.transform = 'translate(-50%, -50%) scale(1)'; });
     });
+
+    // Generate random star positions (dark grey stars for subtlety)
+    function generateStars(count) {
+      const shadows = [];
+      for (let i = 0; i < count; i++) {
+        const x = Math.floor(Math.random() * 2000);
+        const y = Math.floor(Math.random() * 2000);
+        shadows.push(`${x}px ${y}px rgba(50, 50, 50, 0.6)`);
+      }
+      return shadows.join(', ');
+    }
+    document.documentElement.style.setProperty('--stars-small', generateStars(700));
+    document.documentElement.style.setProperty('--stars-medium', generateStars(200));
+    document.documentElement.style.setProperty('--stars-big', generateStars(100));
   </script>
 </body>
 </html>
