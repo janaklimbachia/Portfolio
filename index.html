@@ -66,7 +66,6 @@
       color: var(--text-color);
       position: relative;
 
-      /* make footer stick to bottom */
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -141,7 +140,7 @@
     .theme-toggle:hover{ transform: translateY(-1px); border-color: var(--accent-color); }
     .theme-toggle:active{ transform: translateY(0); }
 
-    /* HERO / LANDING (avatar removed here by request) */
+    /* HERO */
     .hero {
       min-height: 70vh;
       display: flex;
@@ -155,7 +154,7 @@
       text-align: left;
       position: relative;
       z-index: 1;
-      margin-bottom: 215px;   /* add space below the hero */
+      margin-bottom: 215px;
     }
 
     .hero .content {
@@ -194,7 +193,6 @@
       gap: 40px;
     }
 
-    /* increase to match experience title size */
     .about-blurb {
       flex: 1 1 400px;
       font-size: 1.5rem;
@@ -256,7 +254,7 @@
       padding: 20px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
       display: flex;
-      align-items: center;              /* center logo vertically with text */
+      align-items: center;
       justify-content: space-between;
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color .3s ease, color .3s ease;
       cursor: pointer;
@@ -277,7 +275,6 @@
     }
 
     .role-meta { font-size: 0.95rem; margin-bottom: 10px; color: var(--muted-text); }
-
     .experience-content p { margin: 5px 0; font-size: 0.95rem; color: var(--muted-text); }
 
     .experience-content ul {
@@ -290,13 +287,17 @@
 
     .experience-content ul li { margin-bottom: 6px; line-height: 1.4; }
 
+    /* WHITE FRAME BEHIND EXPERIENCE LOGOS */
     .company-logo {
       width: 600px;
       min-width: 200px;
       height: 120px;
       border-radius: 15px;
       object-fit: contain;
-      background-color: var(--card-bg);
+      background: #ffffff;
+      padding: 10px;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
       display: block;
       align-self: center;
     }
@@ -315,7 +316,7 @@
 
     .tech-stack i:hover { color: var(--accent-color); }
 
-    /* PROJECTS SECTION */
+    /* ===================== PROJECTS SECTION (2 COLUMN) ===================== */
     #projects {
       padding: 80px 10%;
       text-align: left;
@@ -335,36 +336,127 @@
       color: var(--text-color);
     }
 
-    .projects { display: flex; flex-direction: column; gap: 20px; }
+    /* EXACTLY 2 columns on desktop */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
 
-    .project {
+    .project-tile {
       background-color: var(--card-bg);
-      border-radius: 15px;
-      padding: 20px;
+      border-radius: 18px;
+      padding: 18px;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      position: relative;
+      min-height: 310px;
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color .3s ease, color .3s ease;
       cursor: pointer;
       color: var(--text-color);
+      overflow: hidden;
     }
 
-    .project:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+    .project-tile:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
 
-    .project-content { flex-grow: 1; padding-right: 20px; }
+    .project-tile-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+    }
 
-    .project-content h3 { font-size: 1.5rem; margin-bottom: 10px; color: var(--text-color); }
+    .project-tile-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text-color);
+      margin-top: 4px;
+    }
 
-    .project-content p { margin: 0; font-size: 0.95rem; color: var(--muted-text); line-height: 1.4; }
-
-    .projects .project img {
-      width: 600px;
-      min-width: 200px;
+    /* PROJECT LOGO FRAME: SAME AS EDUCATION (120 x 120) */
+    .project-logo-frame {
+      width: 120px;
       height: 120px;
+      min-width: 120px;
       border-radius: 15px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      border: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .project-logo-frame img {
+      width: 88%;
+      height: 88%;
       object-fit: contain;
-      background-color: var(--card-bg);
+      display: block;
+    }
+
+    .project-short {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: var(--muted-text);
+      line-height: 1.45;
+      transition: opacity 0.25s ease;
+    }
+
+    .project-long {
+      position: absolute;
+      inset: 0;
+      padding: 18px;
+      background: var(--card-bg);
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .project-tile:hover .project-long {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-tile:hover .project-short {
+      opacity: 0;
+    }
+
+    .project-long h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: var(--text-color);
+    }
+
+    .project-long p {
+      font-size: 0.92rem;
+      color: var(--muted-text);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .project-long a {
+      font-size: 0.92rem;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .project-long a:hover { text-decoration: underline; }
+
+    .project-long .tech-stack {
+      margin-top: 12px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .project-long .tech-stack i {
+      font-size: 22px;
+      color: var(--text-color);
     }
 
     /* EDUCATION SECTION */
@@ -409,16 +501,19 @@
     .education-content h3 { font-size: 1.5rem; margin-bottom: 8px; color: var(--text-color); }
 
     .education-meta { font-size: 0.95rem; color: var(--muted-text); margin-bottom: 10px; }
-
     .education-content p { margin: 4px 0; font-size: 0.95rem; color: var(--muted-text); line-height: 1.4; }
 
+    /* WHITE FRAME BEHIND EDUCATION LOGOS */
     .school-logo {
       width: 120px;
       min-width: 120px;
       height: 120px;
       border-radius: 15px;
       object-fit: contain;
-      background-color: var(--card-bg);
+      background: #ffffff;
+      padding: 10px;
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
     }
 
     /* CERTIFICATES AND HONORS */
@@ -449,8 +544,8 @@
       padding: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.2);
       display: flex;
-      flex-direction: row-reverse;      /* keep logos on right */
-      align-items: center;              /* vertically center logo and text */
+      flex-direction: row-reverse;
+      align-items: center;
       justify-content: space-between;
       gap: 20px;
       transition: transform 0.3s ease, box-shadow 0.3s ease, background-color .3s ease, color .3s ease;
@@ -461,27 +556,26 @@
 
     .certificate-card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
+    /* WHITE FRAME BEHIND CERTIFICATE LOGOS */
     .cert-logo-wrapper {
       width: 64px;
       min-width: 64px;
       height: 64px;
       border-radius: 12px;
-      background-color: var(--card-bg);
+      background: #ffffff;
       box-shadow: 0 5px 15px rgba(0,0,0,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.08);
+      padding: 6px;
     }
 
-    .cert-logo-wrapper img { max-width: 80%; max-height: 80%; object-fit: contain; }
+    .cert-logo-wrapper img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
     .certificate-textblock { flex: 1; padding-left: 20px; padding-right: 0; }
-
     .certificate-textblock h3 { font-size: 1.2rem; margin-bottom: 6px; color: var(--text-color); }
-
     .certificate-meta { font-size: 0.95rem; color: var(--muted-text); margin-bottom: 8px; }
-
     .certificate-textblock p { font-size: 0.95rem; color: var(--muted-text); margin: 0 0 8px 0; line-height: 1.4; }
 
     .certificate-textblock a {
@@ -530,9 +624,7 @@
     .research-card:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
     .paper-title { font-size: 1.2rem; font-weight: 600; color: var(--text-color); margin-bottom: 6px; line-height: 1.4; }
-
     .paper-meta { font-size: 0.95rem; color: var(--muted-text); margin-bottom: 8px; }
-
     .paper-desc { font-size: 0.95rem; color: var(--muted-text); line-height: 1.4; margin: 0 0 8px 0; }
 
     .paper-link {
@@ -659,7 +751,7 @@
     .social-links a { color: #fff; font-size: 24px; transition: color 0.3s; }
     .social-links a:hover { color: var(--accent-color); }
 
-    /* -------- OVERWRITTEN BACKGROUND: Aurora + Starfield (inline) -------- */
+    /* -------- BACKGROUND: Aurora + Starfield -------- */
     .animated-bg {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -694,7 +786,6 @@
       animation-delay: -15s;
       transition: filter .3s ease;
     }
-    /* subtle shift in dark */
     body.dark .animated-bg::before,
     body.dark .animated-bg::after{
       filter: hue-rotate(120deg) brightness(0.8) blur(65px);
@@ -712,7 +803,6 @@
       66% { transform: translate(-12%, 4%) rotate(6deg) scale(0.92); opacity: 0.95; }
     }
 
-    /* Starfield layers (CSS uses variables set by JS) */
     #stars, #stars2, #stars3 {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -801,21 +891,19 @@
       .experience-heading-wrapper h2,
       #projects h2, #education h2, #certificates h2, #research h2, #interests h2 { font-size: 2rem; }
 
-      .experience-card, .project, .education-card, .certificate-card, .research-card {
+      .experience-card, .education-card, .certificate-card, .research-card {
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
       }
 
-      .experience-content, .project-content, .education-content, .certificate-textblock {
+      .experience-content, .education-content, .certificate-textblock {
         padding: 0 0 16px 0;
       }
 
       .company-logo,
-      .projects .project img,
       .school-logo,
-      .cert-logo-wrapper,
-      .research-card img {
+      .cert-logo-wrapper {
         width: 100% !important;
         max-width: 200px;
         height: auto;
@@ -825,9 +913,13 @@
         display: block;
       }
 
-      .certificate-card { flex-direction: column; } /* vertical on mobile */
-      .cert-logo-wrapper { width: 80px; height: 80px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); }
-      .projects .project img { max-width: 100%; height: auto; }
+      /* Projects become 1 column on mobile */
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .certificate-card { flex-direction: column; }
+      .cert-logo-wrapper { width: 80px; height: 80px; }
       .school-logo { max-width: 120px; }
 
       .social-links-container { max-width: 320px; width: 90%; }
@@ -845,7 +937,7 @@
       z-index: 9999;
       transition: transform 0.1s ease-out, border-color 0.3s ease;
     }
-      
+
   </style>
 </head>
 
@@ -853,7 +945,7 @@
   <!-- Custom Cursor -->
   <div id="custom-cursor"></div>
 
-  <!-- New Background Layers -->
+  <!-- Background Layers -->
   <div class="animated-bg"></div>
   <div id="stars"></div>
   <div id="stars2"></div>
@@ -877,7 +969,7 @@
   </nav>
 
   <main>
-    <!-- Hero Section (no avatar here) -->
+    <!-- Hero -->
     <header class="hero">
       <div class="content">
         <h1>
@@ -887,7 +979,7 @@
       </div>
     </header>
 
-    <!-- About + Avatar + Experience heading -->
+    <!-- About -->
     <section id="about-experience-intro">
       <div class="about-experience-toprow">
         <div class="about-blurb">
@@ -908,7 +1000,7 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- Experience -->
     <section id="experience">
       <div class="experience-list">
 
@@ -1008,83 +1100,250 @@
       </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects -->
     <section id="projects">
       <h2>Projects</h2>
-      <div class="projects">
 
-        <div class="project" onclick="window.open('https://github.com/janaklimbachia/Moodify', '_blank')">
-          <div class="project-content">
-            <h3>Moodify - Mental Health AI Companion</h3>
-            <p>Moodify is an AI-powered mental health solution that integrates emotion detection, a chatbot, and anonymous chat rooms to combat mental health stigma and provide accessible support. It achieved 82% detection accuracy and received positive user feedback for its impactful and user-friendly design.</p>
+      <div class="projects-grid">
+
+        <!-- LOOP -->
+        <div class="project-tile" onclick="window.open('https://loop-io-996801154318.us-west1.run.app/', '_blank')">
+          <div class="project-tile-top">
+            <div class="project-tile-title">LOOP</div>
+            <div class="project-logo-frame">
+              <img src="Loop.png" alt="LOOP Logo">
+            </div>
+          </div>
+
+          <div class="project-short">
+            Multi agent system that turns strategy into execution with feedback loops.
+          </div>
+
+          <div class="project-long">
+            <h4>LOOP</h4>
+            <p>
+              LOOP is a multi agent automated marketing ops system built around orchestration,
+              reliability, and feedback loops. It converts fragmented inputs like briefs, context,
+              and performance signals into structured execution across strategy, content, and delivery.
+              The goal is dependable outcomes with a loop that keeps improving based on signals,
+              not one off AI responses.
+            </p>
+            <a href="https://loop-io-996801154318.us-west1.run.app/" target="_blank" onclick="event.stopPropagation()">Open live product →</a>
+            <div class="tech-stack">
+              <i class="fas fa-network-wired" title="Orchestration"></i>
+              <i class="fas fa-brain" title="AI"></i>
+              <i class="fas fa-cogs" title="Automation"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRAYgent -->
+        <div class="project-tile" onclick="window.open('https://v0-fintech-readiness-tool.vercel.app/', '_blank')">
+          <div class="project-tile-top">
+            <div class="project-tile-title">CRAYgent</div>
+            <div class="project-logo-frame">
+              <img src="CRAYgentlogo.png" alt="CRAYgent Logo">
+            </div>
+          </div>
+
+          <div class="project-short">
+            AI guided fintech onboarding readiness plus payment setup decision support.
+          </div>
+
+          <div class="project-long">
+            <h4>CRAYgent</h4>
+            <p>
+              CRAYgent turns payment onboarding from a black box into a guided readiness workflow.
+              It provides a readiness confidence score, likely review path modeling, and clear fixes for flagged issues.
+              It also includes a template studio for common policy gaps and a payment integration planner that recommends
+              best fit platforms and which payment methods to enable now versus later. It is decision support, not an approval engine.
+            </p>
+            <a href="https://v0-fintech-readiness-tool.vercel.app/" target="_blank" onclick="event.stopPropagation()">Open live product →</a>
+            <div class="tech-stack">
+              <i class="fas fa-shield-alt" title="Compliance"></i>
+              <i class="fas fa-credit-card" title="Payments"></i>
+              <i class="fas fa-brain" title="AI"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- PromptDB AI -->
+        <div class="project-tile" onclick="window.open('https://promptdbai.lovable.app/', '_blank')">
+          <div class="project-tile-top">
+            <div class="project-tile-title">PromptDB AI</div>
+            <div class="project-logo-frame">
+              <img src="promptdblogo.png" alt="PromptDB AI Logo">
+            </div>
+          </div>
+
+          <div class="project-short">
+            Prompt management and iteration workspace for LLM workflows.
+          </div>
+
+          <div class="project-long">
+            <h4>PromptDB AI</h4>
+            <p>
+              PromptDB AI is a lightweight workspace to store, organize, and reuse prompts for real workflows.
+              It is built for iteration and clarity so teams can keep prompts consistent, searchable, and easy to apply
+              across different use cases without losing context.
+            </p>
+            <a href="https://promptdbai.lovable.app/" target="_blank" onclick="event.stopPropagation()">Open live product →</a>
+            <div class="tech-stack">
+              <i class="fas fa-database" title="Storage"></i>
+              <i class="fas fa-brain" title="LLMs"></i>
+              <i class="fas fa-layer-group" title="Organization"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Moodify -->
+        <div class="project-tile" onclick="window.open('https://github.com/janaklimbachia/Moodify', '_blank')">
+          <div class="project-tile-top">
+            <div class="project-tile-title">Moodify</div>
+            <div class="project-logo-frame">
+              <img src="moodifylogo_new.png" alt="Moodify Logo">
+            </div>
+          </div>
+
+          <div class="project-short">
+            AI mental health companion with emotion detection, chatbot, and anonymous chat rooms.
+          </div>
+
+          <div class="project-long">
+            <h4>Moodify</h4>
+            <p>
+              Moodify is an AI powered mental health solution that integrates emotion detection,
+              a chatbot, and anonymous chat rooms to reduce stigma and increase access to support.
+              It achieved 82 percent detection accuracy and received positive user feedback for its
+              usability and impact.
+            </p>
+            <a href="https://github.com/janaklimbachia/Moodify" target="_blank" onclick="event.stopPropagation()">Open GitHub →</a>
             <div class="tech-stack">
               <i class="fab fa-android" title="Android"></i>
               <i class="fab fa-java" title="Java"></i>
-              <i class="fab fa-figma" title="Figma"></i>
-              <i class="fas fa-brain" title="AI"></i>
               <i class="fab fa-python" title="Python"></i>
               <i class="fas fa-database" title="Firebase"></i>
             </div>
           </div>
-          <img src="moodifylogo_new.png" alt="Moodify Project Image">
         </div>
 
-        <div class="project" onclick="window.open('https://github.com/janaklimbachia/Shabri-Voice-Controlled-AI-Assistant', '_blank')">
-          <div class="project-content">
-            <h3>Shabri - AI Assistant</h3>
-            <p>Shabri is a voice-authorized assistant for personal devices, helping with tasks like reading to-do lists, scheduling meetings, and notifying trends. It's trained on various accents and decibel levels for universal adaptability.</p>
+        <!-- Shabri -->
+        <div class="project-tile" onclick="window.open('https://github.com/janaklimbachia/Shabri-Voice-Controlled-AI-Assistant', '_blank')">
+          <div class="project-tile-top">
+            <div class="project-tile-title">Shabri</div>
+            <div class="project-logo-frame">
+              <img src="shabri.png" alt="Shabri Logo">
+            </div>
+          </div>
+
+          <div class="project-short">
+            Voice authorized assistant for personal devices, trained for accent and noise robustness.
+          </div>
+
+          <div class="project-long">
+            <h4>Shabri</h4>
+            <p>
+              Shabri is a voice authorized assistant built to handle everyday utilities like reading to do lists,
+              scheduling, and notifications. It is trained for varied accents and decibel levels to improve usability
+              across environments.
+            </p>
+            <a href="https://github.com/janaklimbachia/Shabri-Voice-Controlled-AI-Assistant" target="_blank" onclick="event.stopPropagation()">Open GitHub →</a>
             <div class="tech-stack">
               <i class="fab fa-python" title="Python"></i>
-              <i class="fas fa-microphone" title="Voice Recognition"></i>
+              <i class="fas fa-microphone" title="Voice"></i>
               <i class="fas fa-robot" title="AI"></i>
             </div>
           </div>
-          <img src="shabri.png" alt="Shabri Project Image">
         </div>
 
-        <div class="project" onclick="window.open('https://github.com/janaklimbachia/Deep-Learning-Intelligent-Chatbot', '_blank')">
-          <div class="project-content">
-            <h3>Deep Learning Chatbot</h3>
-            <p>A self-learning chatbot developed using RNN in Python and TensorFlow. It improves based on user feedback and integrates various APIs for enhanced functionality.</p>
+        <!-- Deep Learning Chatbot -->
+        <div class="project-tile" onclick="window.open('https://github.com/janaklimbachia/Deep-Learning-Intelligent-Chatbot', '_blank')">
+          <div class="project-tile-top">
+            <div class="project-tile-title">Deep Learning Chatbot</div>
+            <div class="project-logo-frame">
+              <img src="DL-Chatbot.png" alt="Deep Learning Chatbot Logo">
+            </div>
+          </div>
+
+          <div class="project-short">
+            Self learning chatbot built using RNN in Python and TensorFlow.
+          </div>
+
+          <div class="project-long">
+            <h4>Deep Learning Chatbot</h4>
+            <p>
+              A self learning chatbot developed using RNN in Python and TensorFlow.
+              It improves based on user feedback and integrates APIs for expanded functionality.
+            </p>
+            <a href="https://github.com/janaklimbachia/Deep-Learning-Intelligent-Chatbot" target="_blank" onclick="event.stopPropagation()">Open GitHub →</a>
             <div class="tech-stack">
               <i class="fab fa-python" title="Python"></i>
-              <i class="fas fa-robot" title="AI"></i>
               <i class="fab fa-tensorflow" title="TensorFlow"></i>
+              <i class="fas fa-robot" title="AI"></i>
             </div>
           </div>
-          <img src="DL-Chatbot.png" alt="Chatbot Project Image">
         </div>
 
-        <div class="project" onclick="window.open('https://github.com/janaklimbachia/Farmers-Care-Portal', '_blank')">
-          <div class="project-content">
-            <h3>Farmer's Care Portal</h3>
-            <p>A portal connecting farmers directly with consumers, eliminating middlemen. It uses SQL for the database and TKinter for the front end, ensuring fair prices and fresh produce.</p>
+        <!-- Farmer's Care Portal -->
+        <div class="project-tile" onclick="window.open('https://github.com/janaklimbachia/Farmers-Care-Portal', '_blank')">
+          <div class="project-tile-top">
+            <div class="project-tile-title">Farmer's Care Portal</div>
+            <div class="project-logo-frame">
+              <img src="FarmerCare.png" alt="Farmer's Care Portal Logo">
+            </div>
+          </div>
+
+          <div class="project-short">
+            Portal connecting farmers with consumers using SQL and TKinter.
+          </div>
+
+          <div class="project-long">
+            <h4>Farmer's Care Portal</h4>
+            <p>
+              A portal connecting farmers directly with consumers, reducing dependency on middlemen.
+              It uses SQL for storage and TKinter for the interface to support fair pricing and fresh delivery.
+            </p>
+            <a href="https://github.com/janaklimbachia/Farmers-Care-Portal" target="_blank" onclick="event.stopPropagation()">Open GitHub →</a>
             <div class="tech-stack">
               <i class="fab fa-python" title="Python"></i>
               <i class="fas fa-database" title="SQL"></i>
               <i class="fas fa-leaf" title="Agriculture"></i>
             </div>
           </div>
-          <img src="FarmerCare.png" alt="Farmer's Care Project Image">
         </div>
 
-        <div class="project" onclick="window.open('https://github.com/janaklimbachia/SomaiyaITSolutions', '_blank')">
-          <div class="project-content">
-            <h3>IT Solutions ERP</h3>
-            <p>An ERP platform for tracking project progress and member assignments. Developed using NetBeans IDE, Java, and MySQL, it offers different views for members, managers, and admins.</p>
+        <!-- IT Solutions ERP -->
+        <div class="project-tile" onclick="window.open('https://github.com/janaklimbachia/SomaiyaITSolutions', '_blank')">
+          <div class="project-tile-top">
+            <div class="project-tile-title">IT Solutions ERP</div>
+            <div class="project-logo-frame">
+              <img src="ITSolutionsERP.png" alt="IT Solutions ERP Logo">
+            </div>
+          </div>
+
+          <div class="project-short">
+            ERP platform for project tracking built with Java and MySQL.
+          </div>
+
+          <div class="project-long">
+            <h4>IT Solutions ERP</h4>
+            <p>
+              An ERP platform to track project progress and member assignments.
+              Built using Java and MySQL with different dashboards for members, managers, and admins.
+            </p>
+            <a href="https://github.com/janaklimbachia/SomaiyaITSolutions" target="_blank" onclick="event.stopPropagation()">Open GitHub →</a>
             <div class="tech-stack">
               <i class="fab fa-java" title="Java"></i>
               <i class="fas fa-database" title="MySQL"></i>
               <i class="fas fa-network-wired" title="ERP"></i>
             </div>
           </div>
-          <img src="ITSolutionsERP.png" alt="ERP Project Image">
         </div>
 
       </div>
     </section>
 
-    <!-- Education Section -->
+    <!-- Education -->
     <section id="education">
       <h2>Education</h2>
       <div class="education-list">
@@ -1116,7 +1375,7 @@
       </div>
     </section>
 
-    <!-- Certificates and Honors Section -->
+    <!-- Certificates -->
     <section id="certificates">
       <h2>Certificates and Honors</h2>
       <div class="certificate-list">
@@ -1172,7 +1431,7 @@
       </div>
     </section>
 
-    <!-- Research and Publications Section -->
+    <!-- Research -->
     <section id="research">
       <h2>Research and Publications</h2>
       <div class="research-list">
@@ -1218,7 +1477,7 @@
       </div>
     </section>
 
-    <!-- Personal Interests Section -->
+    <!-- Beyond Work -->
     <section id="interests">
       <h2>Beyond Work</h2>
       <div class="interests-subtitle">Things I care about outside shipping product.</div>
@@ -1250,7 +1509,7 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact-section">
       <div class="contact-header">
         <h2>Connect with me</h2>
@@ -1286,7 +1545,6 @@
     <p>&copy; 2025 Janak Limbachia. All Rights Reserved.</p>
   </footer>
 
-  <!-- Specialty rotation + reveal + cursor + star variables + THEME TOGGLE -->
   <script>
     // ---------------- Specialty rotation ----------------
     const specialties = [
@@ -1318,14 +1576,13 @@
     document.addEventListener('mousemove', (e) => {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
-      const elemBelow = document.elementFromPoint(e.clientX, e.clientY);
-      // Slight contrast shift over nav/footer
       const rootStyles = getComputedStyle(document.body);
       const contrast = rootStyles.getPropertyValue('--cursor-contrast').trim() || '#222';
       cursor.style.borderColor = contrast;
     });
+
     const hoverCards = document.querySelectorAll(
-      '.project, .experience-card, .education-card, .certificate-card, .research-card, .interest-card, .social-link, nav a, .theme-toggle'
+      '.project-tile, .experience-card, .education-card, .certificate-card, .research-card, .interest-card, .social-link, nav a, .theme-toggle'
     );
     hoverCards.forEach(card => {
       card.addEventListener('mouseover', () => { cursor.style.transform = 'translate(-50%, -50%) scale(2)'; });
@@ -1343,8 +1600,8 @@
       return shadows.join(', ');
     }
     function updateStarsForTheme(isDark){
-      const lightColor = 'rgba(50, 50, 50, 0.6)';            // subtle dark-grey stars on light bg
-      const darkColor  = 'rgba(220, 252, 231, 0.7)';         // soft mint stars on dark bg
+      const lightColor = 'rgba(50, 50, 50, 0.6)';
+      const darkColor  = 'rgba(220, 252, 231, 0.7)';
       const c = isDark ? darkColor : lightColor;
       document.documentElement.style.setProperty('--stars-small',  generateStars(700, c));
       document.documentElement.style.setProperty('--stars-medium', generateStars(200, c));
@@ -1358,13 +1615,10 @@
       const isDark = mode === 'dark';
       document.body.classList.toggle('dark', isDark);
       updateStarsForTheme(isDark);
-      // Button label
       themeToggleBtn.textContent = isDark ? '☀️' : '🌙';
-      // Persist
       try { localStorage.setItem('theme', mode); } catch(e){}
     }
 
-    // Initialize theme (localStorage -> prefers-color-scheme -> light)
     (function initTheme(){
       let mode = 'light';
       try {
@@ -1380,7 +1634,6 @@
       applyTheme(isDark ? 'light' : 'dark');
     });
 
-    // Also update stars on resize occasionally to vary pattern slightly
     let resizeTimer=null;
     window.addEventListener('resize', ()=>{
       clearTimeout(resizeTimer);
