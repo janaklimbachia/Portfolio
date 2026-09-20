@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Janak Limbachia — Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+<script src="config.js"></script>
+</head>
+<body>
+
+<div id="custom-cursor"></div>
+
+<div class="animated-bg"></div>
+<div id="stars"></div>
+<div id="stars2"></div>
+<div id="stars3"></div>
+
+<div id="page-wrap">
+
+<header class="site-head">
+  <div class="nav-pill">
+    <button id="nav-home">Home</button>
+    <button id="nav-about">About</button>
+    <button id="nav-contact">Say hi</button>
+    <button class="game-trigger" id="game-trigger" title="Play a game" aria-label="Play a game"><i class="fa-solid fa-gamepad"></i></button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-canvas-wrap"><canvas id="hero-swirl"></canvas></div>
+  <div class="hero-content">
+    <p class="intro-line">Hi, I'm <span class="accent-name">Janak</span> :)<br/>&amp; I'm a <span class="role-wrap" id="role-wrap"><span class="role-slot" id="role-slot-a">AI Product Manager</span></span></p>
+    <p class="main-statement">Most PMs write the spec after the alignment meeting. I write it
+      <span class="underline-word">before<svg viewBox="0 0 100 14" preserveAspectRatio="none"><path d="M2 8 Q 25 2, 50 7 T 98 6" stroke="#d85a30" stroke-width="3" fill="none" stroke-linecap="round"/></svg></span>
+      — so the meeting is where people agree, not where they find out something's wrong.</p>
+  </div>
+</section>
+
+<div class="tab-bar-wrap" id="tab-bar-wrap">
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="work">Work</button>
+    <button class="tab-btn" data-tab="experience">Experience</button>
+    <button class="tab-btn" data-tab="education">Education</button>
+    <button class="tab-btn" data-tab="about">About</button>
+  </div>
+</div>
+
+<main>
+
+  <!-- WORK -->
+  <section class="panel active" id="panel-work">
+    <div class="timeline-row">
+      <div class="label-col"></div>
+      <div class="track-col"><div class="track-line"></div><div class="track-dot" id="dot-work">🙂</div></div>
+      <div class="work-scroll" id="work-scroll">
+
+      <div class="work-row">
+        <div class="work-card">
+          <a class="card-link-arrow" href="https://bridgeway-six.vercel.app/#/identity" target="_blank" title="Open live project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <h3>Bridgeway</h3>
+          <p class="sub">Federated governance layer for enterprise AI agents</p>
+          <div class="work-thumb"><img class="preview-img" data-slug="bridgeway" alt=""/></div>
+        </div>
+        <div class="work-panel">
+          <h4><i class="fa-solid fa-eye"></i> Overview</h4>
+          <p>A prototype for the moment an AI agent needs to be stopped, audited, or handed off across systems that don't share the same rules.</p>
+          <h4><i class="fa-solid fa-list-check"></i> Key features</h4>
+          <ul>
+            <li>Cross-system agent identity and permissions</li>
+            <li>Audit trail across every agent handoff</li>
+            <li>Kill-switch and override controls</li>
+          </ul>
+          <p class="tech">AI governance — agent identity — enterprise systems</p>
+        </div>
+      </div>
+
+      <div class="work-row">
+        <div class="work-card">
+          <a class="card-link-arrow" href="https://loop-io-996801154318.us-west1.run.app/" target="_blank" title="Open live project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <h3>LOOP</h3>
+          <p class="sub">Multi-agent marketing ops with feedback loops</p>
+          <div class="work-thumb"><img class="preview-img" data-slug="loop" alt=""/></div>
+        </div>
+        <div class="work-panel">
+          <h4><i class="fa-solid fa-eye"></i> Overview</h4>
+          <p>Turns briefs and signals into structured execution across strategy, content, and delivery.</p>
+          <h4><i class="fa-solid fa-list-check"></i> Key features</h4>
+          <ul>
+            <li>Multi-agent orchestration</li>
+            <li>Feedback loops that self-correct</li>
+            <li>Structured, repeatable delivery</li>
+          </ul>
+          <p class="tech">Python — LLMs — automation</p>
+        </div>
+      </div>
+
+      <div class="work-row">
+        <div class="work-card">
+          <a class="card-link-arrow" href="https://v0-fintech-readiness-tool.vercel.app/" target="_blank" title="Open live project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <h3>CRAYgent</h3>
+          <p class="sub">AI-guided fintech onboarding readiness</p>
+          <div class="work-thumb"><img class="preview-img" data-slug="craygent" alt=""/></div>
+        </div>
+        <div class="work-panel">
+          <h4><i class="fa-solid fa-eye"></i> Overview</h4>
+          <p>Turns payment onboarding into a guided readiness workflow with a confidence score.</p>
+          <h4><i class="fa-solid fa-list-check"></i> Key features</h4>
+          <ul>
+            <li>Readiness confidence scoring</li>
+            <li>Payment integration planner</li>
+            <li>Template studio for policy gaps</li>
+          </ul>
+          <p class="tech">Compliance — payments — AI</p>
+        </div>
+      </div>
+
+      <div class="work-row">
+        <div class="work-card">
+          <a class="card-link-arrow" href="https://promptdbai.lovable.app/" target="_blank" title="Open live project"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <h3>PromptDB AI</h3>
+          <p class="sub">Prompt management workspace for LLM workflows</p>
+          <div class="work-thumb"><img class="preview-img" data-slug="promptdb" alt=""/></div>
+        </div>
+        <div class="work-panel">
+          <h4><i class="fa-solid fa-eye"></i> Overview</h4>
+          <p>Store, organize, and reuse prompts across real workflows without losing context.</p>
+          <h4><i class="fa-solid fa-list-check"></i> Key features</h4>
+          <ul>
+            <li>Searchable prompt library</li>
+            <li>Built for iteration, not one-offs</li>
+          </ul>
+          <p class="tech">LLMs — storage</p>
+        </div>
+      </div>
+
+      <div class="work-row">
+        <div class="work-card">
+          <a class="card-link-arrow" href="https://ieeexplore.ieee.org/document/10455044" target="_blank" title="Open GitHub"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          <h3>Moodify</h3>
+          <p class="sub">AI mental health companion with distinct features</p>
+          <div class="work-thumb"><img class="preview-img" data-slug="moodify" alt=""/></div>
+        </div>
+        <div class="work-panel">
+          <h4><i class="fa-solid fa-eye"></i> Overview</h4>
+          <p>Emotion detection, chatbot, and anonymous rooms to lower stigma and raise access.</p>
+          <h4><i class="fa-solid fa-list-check"></i> Key features</h4>
+          <ul>
+            <li>82% emotion detection accuracy</li>
+            <li>Anonymous peer support rooms</li>
+          </ul>
+          <p class="tech">Android — Java — Python — Firebase</p>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="panel" id="panel-experience">
+    <div class="timeline-row">
+      <div class="label-col"><div class="entry-label" id="label-exp" style="top:0">Current — full-time</div></div>
+      <div class="track-col"><div class="track-line"></div><div class="track-dot" id="dot-exp" style="top:0">🙂</div></div>
+      <div class="entry-scroll" id="scroll-exp">
+
+        <div class="exp-card" data-tag="Current — full-time">
+          <div class="entry-head"><img class="entry-logo" src="assets/logos/iTN.png" alt="" onerror="this.style.display='none'"/><h3>iTradeNetwork — AI Product Manager</h3></div>
+          <div class="meta">2025 – present</div>
+          <ul><li>Building the AI agent marketplace and the Bridgeway governance layer for enterprise supply chain agents.</li></ul>
+        </div>
+        <div class="exp-card" data-tag="Apprenticeship">
+          <div class="entry-head"><img class="entry-logo" src="assets/logos/bosch.png" alt="" onerror="this.style.display='none'"/><h3>Bosch Climate Solutions — AI Strategy Consultant</h3></div>
+          <div class="meta">Sep 2025 – Nov 2025 · New Hampshire, NH</div>
+          <ul>
+            <li>Led a market-backed analysis of generative AI adoption across consulting workflows.</li>
+            <li>Designed a phased buy-first AI adoption strategy protecting margin and client trust.</li>
+          </ul>
+        </div>
+        <div class="exp-card" data-tag="Internship">
+          <div class="entry-head"><img class="entry-logo" src="assets/logos/iTN.png" alt="" onerror="this.style.display='none'"/><h3>iTradeNetwork Inc. — Product Management Intern</h3></div>
+          <div class="meta">Jun 2025 – Sep 2025 · Pleasanton, CA</div>
+          <ul>
+            <li>Led discovery through 10+ stakeholder interviews, surfacing $2M+ in cleanup costs.</li>
+            <li>Built an AI data orchestration prototype — 80% accuracy, 70% less manual handling.</li>
+          </ul>
+        </div>
+        <div class="exp-card" data-tag="Internship">
+          <div class="entry-head"><img class="entry-logo" src="assets/logos/ltimindtree.png" alt="" onerror="this.style.display='none'"/><h3>LTIMindtree — AI Project Engineering Intern</h3></div>
+          <div class="meta">Mar 2025 – Jun 2025 · Hanover, NH</div>
+          <ul>
+            <li>Cut processing time 60% and reached ~90% accuracy on attribute extraction.</li>
+            <li>Accelerated vendor activation 43% by removing an onboarding bottleneck.</li>
+          </ul>
+        </div>
+        <div class="exp-card" data-tag="Apprenticeship">
+          <div class="entry-head"><img class="entry-logo" src="assets/logos/RDCLogo.png" alt="" onerror="this.style.display='none'"/><h3>Radiation Detection Company — Product Apprentice</h3></div>
+          <div class="meta">Sep 2024 – Nov 2024 · Hanover, NH</div>
+          <ul>
+            <li>Shaped a 3-phase AI adoption roadmap projected at $1.19M in operational ROI.</li>
+            <li>Delivered risk intelligence dashboards on AWS EC2, cutting review time 70%.</li>
+          </ul>
+        </div>
+        <div class="exp-card" data-tag="Founding Product Developer">
+          <div class="entry-head"><img class="entry-logo" src="assets/logos/MansikShaktiLogo.png" alt="" onerror="this.style.display='none'"/><h3>Mansik Shakti — Founding Product Developer</h3></div>
+          <div class="meta">Jan 2023 – May 2024 · Mumbai, India</div>
+          <ul>
+            <li>Built and launched an AI mental health platform, reaching 100k+ users across 4 countries.</li>
+            <li>Ran 650+ interviews, delivering an 85.7% accurate recommendation engine.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="panel" id="panel-education">
+    <div class="timeline-row">
+      <div class="label-col"><div class="entry-label" id="label-edu" style="top:0">Grad school</div></div>
+      <div class="track-col"><div class="track-line"></div><div class="track-dot" id="dot-edu" style="top:0">🙂</div></div>
+      <div class="entry-scroll" id="scroll-edu">
+
+        <div class="edu-card" data-tag="Grad school">
+          <div class="edu-summary">
+            <div class="entry-head"><img class="entry-logo" src="assets/logos/dartmouth.png" alt="" onerror="this.style.display='none'"/><h3>Dartmouth College</h3></div>
+            <div class="meta">Master's in Engineering Management (MEM)</div>
+          </div>
+          <div class="edu-details">
+            <p>Class of 2026. Product management, AI strategy, data analytics, operations, finance, and go-to-market.</p>
+            <p>Coursework: PM in Tech, Digital Operations, Data Analytics, Accounting and Finance, Negotiations.</p>
+          </div>
+        </div>
+
+        <div class="edu-card" data-tag="Undergrad school">
+          <div class="edu-summary">
+            <div class="entry-head"><img class="entry-logo" src="assets/logos/kjsomaiya.png" alt="" onerror="this.style.display='none'"/><h3>K. J. Somaiya Institute of Technology</h3></div>
+            <div class="meta">B.Tech, Artificial Intelligence &amp; Data Science</div>
+          </div>
+          <div class="edu-details">
+            <p>Minor in Blockchain. Applied machine learning, deep learning, and user-facing AI features.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="panel" id="panel-about">
+    <div class="about-grid">
+      <div class="about-block">
+        <h3>About me</h3>
+        <p>I build products that solve real problems — across product, AI, data, and design, from discovery to shipped launch. My working style is built around two relationships: the engineers who build the thing, and the stakeholders who need to trust the plan.</p>
+      </div>
+      <div class="about-block">
+        <h3>At the moment</h3>
+        <p>Building the AI agent marketplace and Bridgeway governance layer at iTradeNetwork.</p>
+        <h3 style="margin-top:18px;">My niche</h3>
+        <div>
+          <span class="niche-tag">AI product strategy</span>
+          <span class="niche-tag">Roadmapping</span>
+          <span class="niche-tag">Data orchestration</span>
+          <span class="niche-tag">Stakeholder alignment</span>
+          <span class="niche-tag">Python</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM — reachable only via "Say hi" in the top-right nav,
+       deliberately not part of the Work/Experience/Education/About selector -->
+  <section class="panel" id="panel-contact-form">
+    <div class="about-grid" style="grid-template-columns:1fr;max-width:560px;margin:0 auto;">
+      <div class="about-block">
+        <h3>Say hi</h3>
+        <p style="margin-bottom:20px;">Tell me a bit about what's on your mind — I read every one of these.</p>
+        <form id="contact-form">
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;">Name</label>
+          <input type="text" id="cf-name" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--border-brush);margin-bottom:16px;font-family:inherit;font-size:0.95rem;"/>
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;">Email</label>
+          <input type="email" id="cf-email" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--border-brush);margin-bottom:16px;font-family:inherit;font-size:0.95rem;"/>
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;">What do you want to talk about?</label>
+          <textarea id="cf-topic" rows="4" style="width:100%;padding:10px 12px;border-radius:8px;border:1px solid var(--border-brush);margin-bottom:20px;font-family:inherit;font-size:0.95rem;resize:vertical;"></textarea>
+          <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px;">
+            <p id="cf-status" style="margin:0;font-size:0.85rem;color:var(--ink-faint);"></p>
+            <button type="submit" class="tab-btn active" style="border-radius:999px;">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCADE -->
+  <section class="panel" id="panel-arcade">
+    <button class="back-btn" id="arcade-back">← Back to portfolio</button>
+
+    <div id="arcade-hub">
+      <div class="arcade-intro">
+        <h2>Three strings</h2>
+        <p>Three small games, one for each thing I care about outside shipping product: cricket, cinema and AI. Pick a zone below — each one explains its own rules once you're in.</p>
+      </div>
+      <div class="hub-grid">
+        <div class="zone-card" data-zone="cricket">
+          <svg class="icon-svg" viewBox="0 0 48 48">
+            <g transform="rotate(-25 24 24)">
+              <rect x="19" y="4" width="10" height="23" rx="4.5" fill="#e8c98a" stroke="#8a5a2a" stroke-width="1.2"/>
+              <rect x="21" y="26" width="6" height="15" rx="2" fill="#8a5a2a"/>
+              <line x1="21" y1="29" x2="27" y2="29" stroke="#5a3a18" stroke-width="1"/>
+              <line x1="21" y1="32.5" x2="27" y2="32.5" stroke="#5a3a18" stroke-width="1"/>
+              <line x1="21" y1="36" x2="27" y2="36" stroke="#5a3a18" stroke-width="1"/>
+            </g>
+            <circle cx="36" cy="13" r="6.5" fill="#a11f1f" stroke="#6b1414" stroke-width="1"/>
+            <path d="M31 13 Q36 9.5 41 13" stroke="#f2e6c8" stroke-width="1.1" fill="none"/>
+            <path d="M31 13 Q36 16.5 41 13" stroke="#f2e6c8" stroke-width="1.1" fill="none"/>
+          </svg>
+          <h3>Cricket</h3>
+          <p>Build your dream XI and see how close it is to mine.</p>
+        </div>
+        <div class="zone-card" data-zone="movies">
+          <svg class="icon-svg" viewBox="0 0 48 48"><rect x="6" y="14" width="24" height="20" rx="2" fill="#2a161c"/><path d="M30 20 L42 14 V34 L30 28 Z" fill="#2a161c"/><circle cx="18" cy="24" r="6" fill="none" stroke="#caa24d" stroke-width="2"/></svg>
+          <h3>Movies &amp; shows</h3>
+          <p>Guess the title as the poster slowly reveals.</p>
+        </div>
+       
+        <div class="zone-card" data-zone="ai">
+          <svg class="icon-svg" viewBox="0 0 48 48"><path d="M24 4 L28 18 L42 22 L28 26 L24 40 L20 26 L6 22 L20 18 Z" fill="#d85a30"/></svg>
+          <h3>AI &amp; tech</h3>
+          <p>Pick the right lane before the gate arrives.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRICKET ZONE -->
+    <div class="cricket-zone" id="zone-cricket" style="display:none;margin-top:20px;">
+      <div class="photo-scene stadium-scene">
+        <img class="bg-photo" src="assets/stadium.jpg" alt="Wankhede Stadium"/>
+        <canvas class="scene-particles" id="particles-cricket"></canvas>
+        <div class="scene-overlay-top">
+          <button class="back-btn" data-back="hub">← Zones</button>
+          <p class="zone-detail-intro" style="color:#eafbe6;">Pick a format, then build your XI from a pool of 30 real players. Submit when you have 11 — you'll see how many match mine, and if we agree on a legend, I'll offer a quick trivia round about them.</p>
+        </div>
+      </div>
+      <div class="cricket-panel">
+        <div class="cricket-layout">
+          <div class="cricket-controls">
+            <div>
+              <button class="format-btn" data-fmt="t20">T20</button>
+              <button class="format-btn" data-fmt="odi">ODI</button>
+              <button class="format-btn" data-fmt="test">Test</button>
+            </div>
+            <div class="player-pool-c" id="player-pool"></div>
+            <button class="format-btn" id="submit-xi" style="background:#ffe9b0;">Submit XI</button>
+            <div id="xi-result"></div>
+          </div>
+          <div class="xi-panel">
+            <h4>Your XI (<span id="xi-count">0</span>/11)</h4>
+            <div id="xi-list"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOVIES ZONE -->
+    <div class="movies-zone" id="zone-movies" style="display:none;margin-top:20px;">
+      <div class="photo-scene cinema-scene">
+        <img class="bg-photo" src="assets/cinema.jpg" alt="Cinema hall"/>
+        <canvas class="scene-particles" id="particles-cinema"></canvas>
+        <div class="scene-overlay-top">
+          <button class="back-btn" data-back="hub">← Zones</button>
+          <p class="zone-detail-intro" style="color:#f0e2d4;">Pick Indian or Western. A poster starts fully hidden — each wrong guess reveals one more tile. Type the title any time (spacing and case don't matter). Refresh cycles to a different title, up to 3 times.</p>
+          <div class="scene-controls-row">
+            <button class="movie-cat-btn" data-mcat="indian">Indian</button>
+            <button class="movie-cat-btn" data-mcat="western">Western</button>
+          </div>
+        </div>
+        <div class="movie-screen-overlay">
+          <div class="poster-frame">
+            <img class="poster-img" id="poster-img" src="" alt=""/>
+            <div class="tile-overlay" id="tile-overlay"></div>
+          </div>
+        </div>
+        <div class="movie-controls-overlay">
+          <p class="movie-meta-text">Wrong guesses left: <span id="tiles-left">15</span> — refreshes left: <span id="refreshes-left">3</span></p>
+          <input type="text" class="movie-input" id="movie-guess" placeholder="Type the title"/>
+          <div>
+            <button class="movie-btn" id="guess-btn">Guess</button>
+            <button class="movie-btn" id="refresh-btn">Refresh</button>
+          </div>
+          <p class="movie-result" id="movie-result"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAI ZONE -->
+    <div class="chai-zone" id="zone-chai" style="display:none;margin-top:20px;">
+      <canvas class="scene-particles" id="particles-chai"></canvas>
+      <button class="back-btn" data-back="hub">← Zones</button>
+      <div class="chai-grid">
+        <div class="chai-cell-img"><img src="assets/tapri.png" alt="Mumbai chai tapri"/></div>
+        <div class="chai-cell-desc">
+          <p class="zone-detail-intro" style="text-align:left;margin:0 0 16px;">Pick Indian songs (गाने) or Ghazals (ग़ज़लें). Five short clues, five ingredients — water, chai patti, elaichi and ginger, sugar, milk. Answer right and it goes in the kettle; miss it and that note is left out of your chai.</p>
+          <div>
+            <button class="chai-cat-btn" data-ccat="indian">Songs <span style="font-size:0.7rem;font-family:var(--font-deva);">(गाने)</span></button>
+            <button class="chai-cat-btn" data-ccat="ghazal">Ghazals <span style="font-size:0.7rem;font-family:var(--font-deva);">(ग़ज़लें)</span></button>
+          </div>
+        </div>
+        <div class="chai-cell-glass">
+          <div class="chai-scene">
+            <div class="wisp2" id="wisp1" style="left:48px;bottom:132px;"></div>
+            <div class="wisp2" id="wisp2" style="left:68px;bottom:132px;"></div>
+            <div class="rim2"></div>
+            <div class="glass2"><div class="liquid2" id="liquid"></div></div>
+            <div class="saucer2"></div>
+            <div class="shimmer2" id="shimmer1" style="left:60px;bottom:118px;"></div>
+            <div class="shimmer2" id="shimmer2" style="left:76px;bottom:124px;"></div>
+          </div>
+        </div>
+        <div class="chai-cell-quiz">
+          <p id="clue2" style="min-height:44px;margin:0 0 12px;font-size:1rem;"></p>
+          <div id="opts2"></div>
+          <div id="chai-end"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AI ZONE -->
+    <div class="ai-zone" id="zone-ai" style="display:none;margin-top:20px;">
+      <canvas class="scene-particles" id="particles-ai"></canvas>
+      <button class="back-btn" data-back="hub" style="background:#0c2417;border-color:#2a6b47;color:#8ff5c3;">← Zones</button>
+      <p class="zone-detail-intro" style="color:#8ff5c3;">Three lanes, one gate per question. Pick the correct answer before it reaches you or you crash and lose a life — two lives total. Timing gets tighter as you go, and after 20 questions the hard round kicks in.</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin:14px 0 10px;">
+        <div class="heart-row2" id="hearts"></div>
+        <span style="font-family:monospace;font-size:0.85rem;">Q<span id="q-idx">1</span> — <span id="q-timer">15</span>s</span>
+      </div>
+      <div class="scene-dark2" id="scene3">
+        <div class="circuit-bg2"></div>
+        <div class="road-dark2"></div>
+        <svg style="position:absolute;inset:0;width:100%;height:100%;" preserveAspectRatio="none" viewBox="0 0 100 100">
+          <line x1="45" y1="0" x2="33.3" y2="100" stroke="#1f4d31" stroke-width="0.6"/>
+          <line x1="55" y1="0" x2="66.7" y2="100" stroke="#1f4d31" stroke-width="0.6"/>
+        </svg>
+        <div class="runner2" id="signal3" style="left:50%;top:88%;">
+          <div class="runner-head2"></div><div class="runner-body2"></div>
+          <div class="runner-leg2 left"></div><div class="runner-leg2 right"></div>
+        </div>
+        <div class="getready2" id="getready3">
+          <div>Dodge the wrong answers. Two lives. Ready?</div>
+          <button class="start-btn" id="ai-start-btn">Start run</button>
+        </div>
+      </div>
+      <div class="trace2"><div class="trace-node2" id="trace-node" style="left:0%;"></div></div>
+      <p id="q-text3" style="font-weight:600;min-height:22px;"></p>
+      <p id="q-note3" style="font-size:0.8rem;color:#5c9a78;min-height:16px;"></p>
+      <div id="end3"></div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer class="site-foot" id="contact">
+  <canvas class="foot-wordmark-canvas" id="foot-wordmark"></canvas>
+  <div class="foot-flex">
+    <div class="foot-name">Janak Limbachia</div>
+    <div class="foot-panel">
+      <a class="foot-row" href="https://linkedin.com/in/janak-limbachia" target="_blank"><span><i class="fa-brands fa-linkedin"></i> LinkedIn</span><i class="fa-solid fa-arrow-right"></i></a>
+      <a class="foot-row" href="mailto:janak.j.limbachia.th@dartmouth.edu"><span><i class="fa-solid fa-envelope"></i> Email</span><i class="fa-solid fa-arrow-right"></i></a>
+      <a class="foot-row" href="https://github.com/janaklimbachia" target="_blank"><span><i class="fa-brands fa-github"></i> GitHub</span><i class="fa-solid fa-arrow-right"></i></a>
+      <a class="foot-row" href="https://docs.google.com/document/d/1IZIUS7WZcpIcT1-gtYExgeLVaEGP1CGC0NwTTJ4097Q/edit?usp=sharing" target="_blank"><span><i class="fa-solid fa-file-lines"></i> Resume</span><i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+  </div>
+  <p class="foot-note">Feel free to reach out for collaborations or any opportunities · © 2026 Janak Limbachia</p>
+</footer>
+
+</div><!-- /page-wrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pixi.js@7.4.0/dist/pixi.min.js"></script>
+<script src="track.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
